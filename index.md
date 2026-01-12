@@ -4,8 +4,15 @@ title: 0xHardfork - Security Research
 ---
 
 <div class="terminal-header">
-  <span class="terminal-prompt">root@0xhardfork:~#</span> <span class="terminal-cursor">█</span>
+  <span class="terminal-prompt">root@0xhardfork:~#</span>
+  <input type="text" id="terminal-input" class="terminal-input" placeholder="Type 'help' or search articles..." autocomplete="off">
+  <span class="terminal-cursor">█</span>
+  <div id="autocomplete-menu" class="autocomplete-menu"></div>
 </div>
+
+<!-- Matrix Easter Egg Canvas -->
+<canvas id="matrix-canvas" class="matrix-canvas"></canvas>
+
 
 # 0xHardfork Security Lab
 
@@ -127,4 +134,71 @@ title: 0xHardfork - Security Research
         initCollapsibleTree();
     }
 })();
+</script>
+
+<script>
+// Article Search and Terminal Interaction
+(function() {
+    const articles = [
+        {% for page in site.pages %}{% if page.title %}{title: {{ page.title | jsonify }}, url: {{ page.url | jsonify }}, path: {{ page.path | jsonify }}},{% endif %}{% endfor %}
+    ].filter(a => a.title);
+    
+    const terminalInput = document.getElementById('terminal-input');
+    const autocompleteMenu = document.getElementById('autocomplete-menu');
+    let selectedIndex = -1, filteredArticles = [];
+    
+    function searchArticles(query) {
+        if (!query) return [];
+        query = query.toLowerCase();
+        return articles.filter(a => a.title.toLowerCase().includes(query) || a.path.toLowerCase().includes(query));
+    }
+    
+    function showAutocomplete(results) {
+        if (results.length === 0) { autocompleteMenu.classList.remove('show'); return; }
+        autocompleteMenu.innerHTML = results.map((a, i) => `<div class="autocomplete-item" data-index="${i}"><div class="article-title">${a.title}</div><div class="article-path">${a.path}</div></div>`).join('');
+        autocompleteMenu.classList.add('show');
+        selectedIndex = -1;
+    }
+    
+    function handleCommand(cmd) {
+        cmd = cmd.trim().toLowerCase();
+        if (cmd === 'run') { startMatrixRain(); terminalInput.value = ''; autocompleteMenu.classList.remove('show'); }
+        else if (cmd === 'help') { alert('Commands:\n- Type to search articles\n- "run" - Matrix Easter Egg\n- "clear" - Clear input'); terminalInput.value = ''; }
+        else if (cmd === 'clear') { terminalInput.value = ''; autocompleteMenu.classList.remove('show'); }
+    }
+    
+    terminalInput.addEventListener('input', e => { filteredArticles = searchArticles(e.target.value); showAutocomplete(filteredArticles); });
+    terminalInput.addEventListener('keydown', e => {
+        const items = autocompleteMenu.querySelectorAll('.autocomplete-item');
+        if (e.key === 'ArrowDown') { e.preventDefault(); selectedIndex = Math.min(selectedIndex + 1, items.length - 1); updateSelection(items); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); selectedIndex = Math.max(selectedIndex - 1, -1); updateSelection(items); }
+        else if (e.key === 'Enter') { e.preventDefault(); if (selectedIndex >= 0 && filteredArticles[selectedIndex]) window.location.href = filteredArticles[selectedIndex].url; else handleCommand(terminalInput.value); }
+        else if (e.key === 'Escape') { autocompleteMenu.classList.remove('show'); selectedIndex = -1; }
+    });
+    
+    function updateSelection(items) { items.forEach((item, i) => { item.classList.toggle('selected', i === selectedIndex); if (i === selectedIndex) item.scrollIntoView({ block: 'nearest' }); }); }
+    autocompleteMenu.addEventListener('click', e => { const item = e.target.closest('.autocomplete-item'); if (item && filteredArticles[item.dataset.index]) window.location.href = filteredArticles[item.dataset.index].url; });
+    document.addEventListener('click', e => { if (!e.target.closest('.terminal-header')) autocompleteMenu.classList.remove('show'); });
+})();
+
+function startMatrixRain() {
+    const canvas = document.getElementById('matrix-canvas'), ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth; canvas.height = window.innerHeight; canvas.classList.add('active');
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+-=[]{}|;:,.<>?/~'.split('');
+    const fontSize = 16, columns = canvas.width / fontSize, drops = Array(Math.floor(columns)).fill(0).map(() => Math.random() * -100);
+    
+    function draw() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#0F0'; ctx.font = fontSize + 'px monospace';
+        drops.forEach((drop, i) => {
+            ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * fontSize, drop * fontSize);
+            if (drop * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            drops[i]++;
+        });
+    }
+    
+    const interval = setInterval(draw, 33);
+    function closeMatrix(e) { if (e.type === 'click' || e.key === 'Escape') { canvas.classList.remove('active'); clearInterval(interval); document.removeEventListener('keydown', closeMatrix); canvas.removeEventListener('click', closeMatrix); } }
+    document.addEventListener('keydown', closeMatrix); canvas.addEventListener('click', closeMatrix);
+}
 </script>

@@ -849,3 +849,164 @@ pre code {
     transform: translateX(-100%);
   }
 }
+
+/* Interactive Terminal Input */
+.terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #00ff00;
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-size: 14px;
+  width: 60%;
+  padding: 0 5px;
+  caret-color: transparent;
+}
+
+.terminal-input::placeholder {
+  color: rgba(0, 255, 0, 0.3);
+}
+
+.terminal-input:focus {
+  outline: none;
+}
+
+/* Autocomplete Menu */
+.autocomplete-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid #00ff00;
+  border-top: none;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+
+.autocomplete-menu.show {
+  display: block;
+}
+
+.autocomplete-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+  color: #00ff00;
+  transition: background 0.2s;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.selected {
+  background: rgba(0, 255, 0, 0.2);
+}
+
+.autocomplete-item .article-title {
+  font-weight: bold;
+  color: #00ff00;
+}
+
+.autocomplete-item .article-path {
+  font-size: 12px;
+  color: rgba(0, 255, 0, 0.6);
+  margin-top: 3px;
+}
+
+/* Matrix Canvas */
+.matrix-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+  background: #000;
+}
+
+.matrix-canvas.active {
+  display: block;
+}
+
+/* Interactive Terminal Input */
+.terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #00ff00;
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-size: 14px;
+  width: 60%;
+  padding: 0 5px;
+  caret-color: transparent;
+  /* Hide default caret, we use custom cursor */
+}
+
+.terminal-input::placeholder {
+  color: rgba(0, 255, 0, 0.3);
+}
+
+.terminal-input:focus {
+  outline: none;
+}
+
+/* Autocomplete Menu */
+.autocomplete-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid #00ff00;
+  border-top: none;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+
+.autocomplete-menu.show {
+  display: block;
+}
+
+.autocomplete-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+  color: #00ff00;
+  transition: background 0.2s;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.selected {
+  background: rgba(0, 255, 0, 0.2);
+}
+
+.autocomplete-item .article-title {
+  font-weight: bold;
+  color: #00ff00;
+}
+
+.autocomplete-item .article-path {
+  font-size: 12px;
+  color: rgba(0, 255, 0, 0.6);
+  margin-top: 3px;
+}
+
+/* Matrix Canvas */
+.matrix-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+  background: #000;
+}
+
+.matrix-canvas.active {
+  display: block;
+}

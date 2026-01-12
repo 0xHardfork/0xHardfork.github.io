@@ -6,7 +6,7 @@ title: 0xHardfork - Security Research
 <div class="terminal-header">
   <span class="terminal-prompt">root@0xhardfork:~#</span>
   <input type="text" id="terminal-input" class="terminal-input" placeholder="Type 'help' or search articles..." autocomplete="off">
-  <span class="terminal-cursor">█</span>
+  <span class="terminal-cursor" id="terminal-cursor">█</span>
   <div id="autocomplete-menu" class="autocomplete-menu"></div>
 </div>
 
@@ -143,14 +143,26 @@ title: 0xHardfork - Security Research
         {% for page in site.pages %}{% if page.title %}{title: {{ page.title | jsonify }}, url: {{ page.url | jsonify }}, path: {{ page.path | jsonify }}},{% endif %}{% endfor %}
     ].filter(a => a.title);
     
+    console.log('Total articles loaded:', articles.length);
+    console.log('Sample articles:', articles.slice(0, 3));
+    
     const terminalInput = document.getElementById('terminal-input');
     const autocompleteMenu = document.getElementById('autocomplete-menu');
+    const terminalCursor = document.getElementById('terminal-cursor');
     let selectedIndex = -1, filteredArticles = [];
+    
+    // Update cursor position to follow input
+    function updateCursorPosition() {
+        const inputWidth = terminalInput.value.length * 9; // Approximate char width
+        terminalCursor.style.display = terminalInput.value.length > 0 ? 'none' : 'inline';
+    }
     
     function searchArticles(query) {
         if (!query) return [];
         query = query.toLowerCase();
-        return articles.filter(a => a.title.toLowerCase().includes(query) || a.path.toLowerCase().includes(query));
+        const results = articles.filter(a => a.title.toLowerCase().includes(query) || a.path.toLowerCase().includes(query));
+        console.log('Search query:', query, 'Results:', results.length);
+        return results;
     }
     
     function showAutocomplete(results) {
@@ -162,12 +174,17 @@ title: 0xHardfork - Security Research
     
     function handleCommand(cmd) {
         cmd = cmd.trim().toLowerCase();
-        if (cmd === 'run') { startMatrixRain(); terminalInput.value = ''; autocompleteMenu.classList.remove('show'); }
-        else if (cmd === 'help') { alert('Commands:\n- Type to search articles\n- "run" - Matrix Easter Egg\n- "clear" - Clear input'); terminalInput.value = ''; }
-        else if (cmd === 'clear') { terminalInput.value = ''; autocompleteMenu.classList.remove('show'); }
+        if (cmd === 'run') { startMatrixRain(); terminalInput.value = ''; autocompleteMenu.classList.remove('show'); updateCursorPosition(); }
+        else if (cmd === 'help') { alert('Commands:\n- Type to search articles\n- "run" - Matrix Easter Egg\n- "clear" - Clear input'); terminalInput.value = ''; updateCursorPosition(); }
+        else if (cmd === 'clear') { terminalInput.value = ''; autocompleteMenu.classList.remove('show'); updateCursorPosition(); }
     }
     
-    terminalInput.addEventListener('input', e => { filteredArticles = searchArticles(e.target.value); showAutocomplete(filteredArticles); });
+    terminalInput.addEventListener('input', e => { 
+        filteredArticles = searchArticles(e.target.value); 
+        showAutocomplete(filteredArticles); 
+        updateCursorPosition();
+    });
+    
     terminalInput.addEventListener('keydown', e => {
         const items = autocompleteMenu.querySelectorAll('.autocomplete-item');
         if (e.key === 'ArrowDown') { e.preventDefault(); selectedIndex = Math.min(selectedIndex + 1, items.length - 1); updateSelection(items); }
@@ -179,6 +196,9 @@ title: 0xHardfork - Security Research
     function updateSelection(items) { items.forEach((item, i) => { item.classList.toggle('selected', i === selectedIndex); if (i === selectedIndex) item.scrollIntoView({ block: 'nearest' }); }); }
     autocompleteMenu.addEventListener('click', e => { const item = e.target.closest('.autocomplete-item'); if (item && filteredArticles[item.dataset.index]) window.location.href = filteredArticles[item.dataset.index].url; });
     document.addEventListener('click', e => { if (!e.target.closest('.terminal-header')) autocompleteMenu.classList.remove('show'); });
+    
+    // Initial cursor state
+    updateCursorPosition();
 })();
 
 function startMatrixRain() {

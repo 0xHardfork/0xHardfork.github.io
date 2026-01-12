@@ -346,6 +346,8 @@ a {
 
 /* Terminal header */
 .terminal-header {
+  position: relative;
+  /* Required for autocomplete menu positioning */
   background: rgba(0, 0, 0, 0.8);
   border: 1px solid #00ff00;
   border-radius: 4px 4px 0 0;
@@ -362,7 +364,12 @@ a {
 
 .terminal-cursor {
   color: #00ff00;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
   animation: blink 1s infinite;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  /* Will be updated by JavaScript */
 }
 
 @keyframes blink {

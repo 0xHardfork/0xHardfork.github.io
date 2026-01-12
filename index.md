@@ -153,8 +153,25 @@ title: 0xHardfork - Security Research
     
     // Update cursor position to follow input
     function updateCursorPosition() {
-        const inputWidth = terminalInput.value.length * 9; // Approximate char width
-        terminalCursor.style.display = terminalInput.value.length > 0 ? 'none' : 'inline';
+        if (!terminalInput || !terminalCursor) return;
+        
+        const prompt = document.querySelector('.terminal-prompt');
+        const promptWidth = prompt ? prompt.offsetWidth : 200;
+        const inputValue = terminalInput.value;
+        
+        // Create temporary span to measure text width
+        const tempSpan = document.createElement('span');
+        tempSpan.style.font = window.getComputedStyle(terminalInput).font;
+        tempSpan.style.visibility = 'hidden';
+        tempSpan.style.position = 'absolute';
+        tempSpan.textContent = inputValue;
+        document.body.appendChild(tempSpan);
+        const textWidth = tempSpan.offsetWidth;
+        document.body.removeChild(tempSpan);
+        
+        // Position cursor after prompt + input text
+        terminalCursor.style.left = (promptWidth + textWidth + 10) + 'px';
+        terminalCursor.style.display = 'inline';
     }
     
     function searchArticles(query) {

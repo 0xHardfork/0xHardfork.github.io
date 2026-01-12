@@ -402,6 +402,10 @@ a {
   position: relative;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  /* Fixed maximum card height */
 
   &::before {
     content: "";
@@ -466,8 +470,31 @@ a {
   padding: 20px;
   position: relative;
   z-index: 1;
-
+  flex: 1;
+  overflow-y: auto;
+  max-height: 320px;
+  /* Fixed content area height */
   /* Ensure on top of pseudo-element */
+
+  /* Custom scrollbar styling */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 0, 0.5);
+    border-radius: 4px;
+
+    &:hover {
+      background: rgba(0, 255, 0, 0.8);
+    }
+  }
+
   p {
     color: #a0a0a0;
     /* Soft light grey */
@@ -568,6 +595,10 @@ a {
   text-align: right;
   position: relative;
   z-index: 1;
+  flex-shrink: 0;
+  /* Keep footer at bottom, outside scroll area */
+  background: rgba(0, 0, 0, 0.8);
+  /* Solid background for footer */
   /* Ensure button clickable */
 }
 

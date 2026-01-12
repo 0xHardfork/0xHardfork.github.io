@@ -1,7 +1,0 @@
----
-layout: default
----
-
-# Demo Page 1
-
-[Back Home](./)

@@ -823,6 +823,15 @@ pre code {
     padding: 10px 0;
     white-space: pre;
     /* Preserve line breaks */
+    color: #00ff00;
+    background: transparent;
+    border: none;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+
+    code {
+      color: #00ff00 !important;
+      text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    }
   }
 }
 

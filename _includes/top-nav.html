@@ -1,12 +1,97 @@
-<!-- 固定顶部导航栏 - 仅在非首页显示 -->
-{% unless page.url == "/" or page.url == "/index.html" %}
+<!-- 固定顶部导航栏样式 -->
+<style>
+    .top-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        border-bottom: 2px solid #00ff00;
+        padding: 12px 0;
+        z-index: 9999;
+        box-shadow: 0 2px 20px rgba(0, 255, 0, 0.3);
+        backdrop-filter: blur(10px);
+    }
+
+    .top-nav .nav-container {
+        width: 90%;
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .top-nav .nav-home {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #00ff00;
+        text-decoration: none;
+        font-family: Monaco, monospace;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 6px 12px;
+        border: 1px solid rgba(0, 255, 0, 0.3);
+        border-radius: 4px;
+        background: rgba(0, 255, 0, 0.05);
+        transition: all 0.3s ease;
+        text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+    }
+
+    .top-nav .nav-home svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+    }
+
+    .top-nav .nav-home:hover {
+        background: rgba(0, 255, 0, 0.15);
+        border-color: #00ff00;
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+        transform: translateY(-2px);
+    }
+
+    .top-nav .nav-path {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #808080;
+        font-family: Monaco, monospace;
+        font-size: 14px;
+        flex-wrap: wrap;
+    }
+
+    .top-nav .nav-path .path-separator {
+        color: #00ff00;
+        opacity: 0.6;
+    }
+
+    .top-nav .nav-path .path-part {
+        color: #a0a0a0;
+        text-transform: capitalize;
+    }
+
+    .top-nav .nav-path .path-part:last-child {
+        color: #00ff00;
+        text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    }
+
+    /* 为有导航栏的页面添加顶部padding */
+    body:has(.top-nav) {
+        padding-top: 60px;
+    }
+</style>
+
+<!-- 固定顶部导航栏 -->
 <nav class="top-nav">
     <div class="nav-container">
         <a href="/" class="nav-home" title="返回首页">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
             </svg>
-            <span>0xHardfork</span>
+            <span>{{ site.title }}</span>
         </a>
 
         <div class="nav-path">
@@ -20,4 +105,3 @@
         </div>
     </div>
 </nav>
-{% endunless %}

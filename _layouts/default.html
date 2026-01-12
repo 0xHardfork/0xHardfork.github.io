@@ -13,8 +13,8 @@
 
 <body>
 
-  {% include top-nav.html %}
-
+  {% if page.url == "/" or page.url == "/index.html" %}
+  <!-- 首页显示完整header -->
   <header>
     <div class="container">
       <a id="a-title" href="{{ '/' | relative_url }}">
@@ -23,6 +23,10 @@
       <h2>{{ site.description | default: site.github.project_tagline }}</h2>
     </div>
   </header>
+  {% else %}
+  <!-- 子页面显示悬浮导航 -->
+  {% include top-nav.html %}
+  {% endif %}
 
   <div class="container">
     <section id="main_content">

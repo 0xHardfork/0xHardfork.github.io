@@ -39,6 +39,19 @@ Visit `http://localhost:4000`
 
 ## 📝 Adding Content
 
+**🎯 NEW: 动态目录加载！**
+
+查看 **[USAGE.md](USAGE.md)** 了解如何快速添加新分类和页面。
+
+### 快速添加新分类
+
+1. **编辑 `_config.yml`** - 添加分类配置（5行代码）
+2. **创建目录** - `mkdir -p pages/your-category`  
+3. **添加内容** - 创建markdown文件
+4. **推送代码** - 首页自动生成新卡片！
+
+详细说明见 [USAGE.md](USAGE.md)。
+
 ### Create a new page
 
 1. Create a markdown file in the appropriate directory under `pages/`

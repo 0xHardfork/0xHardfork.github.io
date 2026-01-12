@@ -20,48 +20,21 @@ title: 0xHardfork - Security Research
 ```
 
 <div class="category-grid">
-  <div class="category-card cloud-security">
+{% for category in site.categories %}
+  <div class="category-card {{ category.id }}">
     <div class="card-header">
-      <span class="card-icon">☁️</span>
-      <h2>云安全</h2>
+      <span class="card-icon">{{ category.icon }}</span>
+      <h2>{{ category.name }}</h2>
     </div>
     <div class="card-content">
-      <p>云原生安全技术与实践</p>
-      <ul class="topic-list">
-        <li><a href="./pages/cloud-security/container-security/">容器安全</a>
-          <ul>
-            <li><a href="./pages/cloud-security/container-security/docker.html">Docker</a></li>
-          </ul>
-        </li>
-      </ul>
+      <p>{{ category.description }}</p>
+      {% include category-tree.html category=category %}
     </div>
     <div class="card-footer">
-      <a href="./pages/cloud-security/" class="btn-enter">[ENTER] →</a>
+      <a href="{{ category.path | prepend: '/' | relative_url }}" class="btn-enter">[ENTER] →</a>
     </div>
   </div>
-
-  <div class="category-card web-security">
-    <div class="card-header">
-      <span class="card-icon">🔐</span>
-      <h2>Web安全</h2>
-    </div>
-    <div class="card-content">
-      <p>现代Web应用安全测试技术</p>
-      <ul class="topic-list">
-        <li><a href="./pages/web-security/iast.html">IAST</a></li>
-        <li><a href="./pages/web-security/sast/">SAST</a>
-          <ul>
-            <li><a href="./pages/web-security/sast/codeql.html">CodeQL</a></li>
-            <li><a href="./pages/web-security/sast/llm-sast.html">大模型SAST</a></li>
-          </ul>
-        </li>
-        <li><a href="./pages/web-security/sac.html">SAC</a></li>
-      </ul>
-    </div>
-    <div class="card-footer">
-      <a href="./pages/web-security/" class="btn-enter">[ENTER] →</a>
-    </div>
-  </div>
+{% endfor %}
 </div>
 
 <div class="status-bar">
@@ -73,5 +46,5 @@ title: 0xHardfork - Security Research
 ---
 
 <p class="footer-note">
-  <span class="blink">▮</span> System initialized | Last update: 2026-01-12 | Maintained by 0xHardfork
+  <span class="blink">▮</span> System initialized | Last update: {{ site.time | date: "%Y-%m-%d" }} | Maintained by 0xHardfork
 </p>

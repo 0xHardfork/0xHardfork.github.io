@@ -3,3 +3,17 @@ description: Advanced Security Research • Code Analysis • Exploit Developmen
 show_downloads: false
 google_analytics:
 theme: jekyll-theme-hacker
+
+# 分类配置 - 用于动态生成首页卡片
+categories:
+  - id: cloud-security
+    name: 云安全
+    icon: ☁️
+    description: 云原生安全技术与实践
+    path: pages/cloud-security
+
+  - id: web-security
+    name: Web安全
+    icon: 🔐
+    description: 现代Web应用安全测试技术
+    path: pages/web-security

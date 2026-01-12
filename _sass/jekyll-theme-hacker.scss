@@ -2,10 +2,11 @@
 @import "default_colors";
 
 $body-background: #0a0a0a !default;
-$body-foreground: #00ff41 !default;
+$body-foreground: #b0b0b0 !default;
+/* 柔和的浅灰色，不刺眼 */
 $header: #00ff00 !default;
-$blockquote-color: $silver-chalice !default;
-$blockquote-border: $dove-grey !default;
+$blockquote-color: #999999 !default;
+$blockquote-border: #444444 !default;
 $container-max-width: 1000px;
 
 @mixin media-max-width($max-width) {
@@ -452,7 +453,8 @@ a {
   padding: 20px;
 
   p {
-    color: #00cc00;
+    color: #a0a0a0;
+    /* 柔和的浅灰色 */
     margin-bottom: 15px;
   }
 
@@ -538,10 +540,12 @@ a {
 }
 
 .status-item {
-  color: #00cc00;
+  color: #888888;
+  /* 柔和的灰色 */
 
   .status-active {
     color: #00ff00;
+    /* 保持活动状态为绿色 */
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
   }
 
@@ -561,7 +565,8 @@ a {
 /* 页脚注释 */
 .footer-note {
   text-align: center;
-  color: #00aa00;
+  color: #808080;
+  /* 柔和的灰色 */
   font-family: Monaco, monospace;
   font-size: 13px;
   margin-top: 40px;

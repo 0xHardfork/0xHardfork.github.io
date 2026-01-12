@@ -219,6 +219,12 @@ ul li {
   list-style-image: url('../images/bullet.png');
 }
 
+/* Remove bullet image for topic lists */
+.topic-list li {
+  list-style-image: none;
+  list-style-type: none;
+}
+
 blockquote {
   color: $blockquote-color;
   padding-left: 10px;
@@ -475,7 +481,7 @@ a {
 
     li {
       margin: 8px 0;
-      padding-left: 20px;
+      padding-left: 25px;
       position: relative;
 
       &::before {
@@ -484,10 +490,14 @@ a {
         left: 0;
         color: #00ff00;
         text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+        font-size: 14px;
       }
 
       /* Collapsible parent items */
       &.has-children {
+        padding-left: 0;
+        /* Remove left padding for parent items */
+
         &::before {
           content: none;
           /* Remove default bullet for parent items */
@@ -511,10 +521,13 @@ a {
 
           .toggle-icon {
             color: #00ff00;
-            text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
-            font-size: 12px;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 1);
+            font-size: 16px;
+            font-weight: bold;
             transition: transform 0.2s ease, color 0.2s ease;
             flex-shrink: 0;
+            min-width: 16px;
+            display: inline-block;
           }
 
           .parent-label {
@@ -530,14 +543,17 @@ a {
           display: none;
           /* Collapsed by default */
           list-style: none;
-          padding-left: 20px;
+          padding-left: 25px;
           margin-top: 5px;
           border-left: 1px solid rgba(0, 255, 0, 0.2);
 
           li {
+            padding-left: 25px;
+
             &::before {
-              content: "▹";
+              content: "▸";
               color: #00cc00;
+              font-size: 14px;
             }
           }
         }

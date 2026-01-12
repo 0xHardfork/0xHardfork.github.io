@@ -3,3 +3,9 @@ description: Advanced Security Research • Code Analysis • Exploit Developmen
 show_downloads: false
 google_analytics:
 theme: jekyll-theme-hacker
+
+# 社交媒体链接
+social:
+  github: https://github.com/0xHardfork
+  twitter: https://twitter.com/0xHardfork
+  email: mailto:contact@0xhardfork.com

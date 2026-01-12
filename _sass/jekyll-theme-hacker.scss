@@ -578,6 +578,45 @@ a {
   animation: blink 1.5s infinite;
 }
 
+/* 社交媒体链接 */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 25px;
+  padding-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  border-radius: 4px;
+  color: #00ff00;
+  text-decoration: none;
+  font-family: Monaco, monospace;
+  font-size: 14px;
+  transition: all 0.3s ease;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  &:hover {
+    background: rgba(0, 255, 0, 0.1);
+    border-color: #00ff00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+  }
+}
+
 /* 改进链接样式 */
 a {
   color: #00ffff;

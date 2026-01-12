@@ -45,7 +45,7 @@ Visit `http://localhost:4000`
 
 ### 快速添加新分类
 
-1. **编辑 `_config.yml`** - 添加分类配置（5行代码）
+1. **编辑 `_data/categories.yml`** - 添加分类配置（5行代码）
 2. **创建目录** - `mkdir -p pages/your-category`  
 3. **添加内容** - 创建markdown文件
 4. **推送代码** - 首页自动生成新卡片！

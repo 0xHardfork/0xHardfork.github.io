@@ -20,7 +20,7 @@ title: 0xHardfork - Security Research
 ```
 
 <div class="category-grid">
-{% for category in site.categories %}
+{% for category in site.data.categories %}
   <div class="category-card {{ category.id }}">
     <div class="card-header">
       <span class="card-icon">{{ category.icon }}</span>

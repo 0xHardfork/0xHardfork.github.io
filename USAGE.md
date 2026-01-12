@@ -6,39 +6,26 @@
 
 ## 📋 添加新分类
 
-### 1. 在 `_config.yml` 中添加分类配置
+### 1. 在 `_data/categories.yml` 中添加分类配置
 
 ```yaml
-categories:
-  - id: your-category-id        # 唯一标识，使用小写和连字符
-    name: 分类名称                # 显示在卡片上的中文名称
-    icon: 🔥                      # emoji图标
-    description: 分类描述          # 一句话介绍
-    path: pages/your-category     # 分类目录路径
+- id: your-category-id        # 唯一标识，使用小写和连字符
+  name: 分类名称                # 显示在卡片上的中文名称
+  icon: 🔥                      # emoji图标
+  description: 分类描述          # 一句话介绍
+  path: pages/your-category     # 分类目录路径
 ```
 
 **示例：添加"渗透测试"分类**
 
+编辑 `_data/categories.yml`，在文件末尾添加：
+
 ```yaml
-categories:
-  - id: cloud-security
-    name: 云安全
-    icon: ☁️
-    description: 云原生安全技术与实践
-    path: pages/cloud-security
-    
-  - id: web-security
-    name: Web安全
-    icon: 🔐
-    description: 现代Web应用安全测试技术
-    path: pages/web-security
-  
-  # 新增分类
-  - id: penetration-testing
-    name: 渗透测试
-    icon: 🎯
-    description: 网络渗透测试方法与工具
-    path: pages/penetration-testing
+- id: penetration-testing
+  name: 渗透测试
+  icon: 🎯
+  description: 网络渗透测试方法与工具
+  path: pages/penetration-testing
 ```
 
 ### 2. 创建分类目录和文件
@@ -149,7 +136,8 @@ Web安全
 ## ⚙️ 技术实现
 
 ### 配置文件
-- `_config.yml` - 分类元数据配置
+- `_data/categories.yml` - 分类元数据配置（独立数据文件）
+- `_config.yml` - Jekyll站点配置
 
 ### 模板文件
 - `index.md` - 首页，遍历categories生成卡片

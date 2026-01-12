@@ -17,28 +17,37 @@ Params: category - category object
 {% if valid_pages.size > 0 %}
 <ul class="topic-list">
     {% comment %}Build directory tree structure{% endcomment %}
-    {% assign processed = "" | split: "" %}
+    {% assign processed_parents = "" | split: "" %}
+    {% assign processed_children = "" | split: "" %}
 
+    {% comment %}First pass - group pages by directory{% endcomment %}
+    {% assign subdirs = "" | split: "" %}
     {% for page in valid_pages %}
-    {% assign rel_path = page.path | remove: category_path | remove: "/" %}
+    {% assign rel_path = page.path | remove_first: category_path | remove_first: "/" %}
+    {% assign parts = rel_path | split: "/" %}
+    {% if parts.size == 2 %}
+    {% assign parent_dir = parts[0] %}
+    {% unless subdirs contains parent_dir %}
+    {% assign subdirs = subdirs | push: parent_dir %}
+    {% endunless %}
+    {% endif %}
+    {% endfor %}
+
+    {% comment %}Render level 1 pages and collapsible parent directories{% endcomment %}
+    {% for page in valid_pages %}
+    {% assign rel_path = page.path | remove_first: category_path | remove_first: "/" %}
     {% assign parts = rel_path | split: "/" %}
     {% assign depth = parts.size %}
 
-    {% comment %}Level 1 pages (directly under category directory){% endcomment %}
     {% if depth == 1 %}
-    {% unless processed contains page.path %}
+    {% comment %}Level 1 pages (directly under category directory){% endcomment %}
     <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
-    {% assign processed = processed | push: page.path %}
-    {% endunless %}
-    {% endif %}
-
-    {% comment %}Level 2 pages (in subdirectories) - collapsible{% endcomment %}
-    {% if depth == 2 %}
+    {% elsif depth == 2 %}
+    {% comment %}Level 2 pages - group under collapsible parent{% endcomment %}
     {% assign parent_dir = parts[0] %}
-    {% assign parent_key = category_path | append: "/" | append: parent_dir %}
 
-    {% unless processed contains parent_key %}
-    {% comment %}Find index page of parent directory{% endcomment %}
+    {% unless processed_parents contains parent_dir %}
+    {% comment %}Find or create parent directory listing{% endcomment %}
     {% assign parent_index = all_pages | where_exp: "p", "p.path contains parent_dir" | where: "name", "index.md" |
     first %}
 
@@ -52,16 +61,17 @@ Params: category - category object
             {% endif %}
         </div>
         <ul class="nested-list">
-            {% for subpage in valid_pages %}
-            {% assign sub_rel_path = subpage.path | remove: category_path | remove: "/" %}
-            {% assign sub_parts = sub_rel_path | split: "/" %}
-            {% if sub_parts.size == 2 and sub_parts[0] == parent_dir %}
-            <li><a href="{{ subpage.url | relative_url }}">{{ subpage.title }}</a></li>
+            {% comment %}Find all children of this parent{% endcomment %}
+            {% for child_page in valid_pages %}
+            {% assign child_rel_path = child_page.path | remove_first: category_path | remove_first: "/" %}
+            {% assign child_parts = child_rel_path | split: "/" %}
+            {% if child_parts.size == 2 and child_parts[0] == parent_dir %}
+            <li><a href="{{ child_page.url | relative_url }}">{{ child_page.title }}</a></li>
             {% endif %}
             {% endfor %}
         </ul>
     </li>
-    {% assign processed = processed | push: parent_key %}
+    {% assign processed_parents = processed_parents | push: parent_dir %}
     {% endunless %}
     {% endif %}
     {% endfor %}

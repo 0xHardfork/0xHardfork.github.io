@@ -2,6 +2,6 @@
 layout: default
 ---
 
-# Demo Page 1
+# Demo Page 2
 
 [Back Home](./)

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: " en-US" }}">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    {% include head-custom.html %}
+
+    {% seo %}
+</head>
+
+<body>
+
+    {% if page.url == "/" or page.url == "/index.html" %}
+    <!-- 首页显示完整header -->
+    <header>
+        <div class="container">
+            <a id="a-title" href="{{ '/' | relative_url }}">
+                <h1>{{ site.title | default: site.github.repository_name }}</h1>
+            </a>
+            <h2>{{ site.description | default: site.github.project_tagline }}</h2>
+        </div>
+    </header>
+    {% else %}
+    <!-- 子页面显示悬浮导航 -->
+    {% include top-nav.html %}
+    {% endif %}
+
+    <div class="container">
+        <section id="main_content">
+            <h1>{{ page.title }}</h1>
+
+            {% if page.description %}
+            <p class="page-description">{{ page.description }}</p>
+            {% endif %}
+
+            {{ content }}
+
+            <!-- 自动生成子页面列表 -->
+            {% assign current_dir = page.url | remove: "index.html" %}
+            {% assign subpages = site.pages | where_exp: "p", "p.url contains current_dir" | where_exp: "p", "p.url !=
+            page.url" | sort: "path" %}
+
+            {% if subpages.size > 0 %}
+            <h2>📑 目录</h2>
+            <ul class="auto-index">
+                {% for subpage in subpages %}
+                {% if subpage.title %}
+                {% assign subpage_dir = subpage.url | remove: ".html" | remove: "/index" %}
+                {% assign depth = subpage.url | remove: current_dir | split: "/" | size %}
+                {% if depth == 1 or depth == 2 %}
+                <li><a href="{{ subpage.url | relative_url }}">{{ subpage.title }}</a></li>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </section>
+    </div>
+</body>
+
+</html>

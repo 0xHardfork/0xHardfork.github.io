@@ -1,4 +1,4 @@
-<!-- 固定顶部导航栏样式 -->
+<!-- Fixed top navigation bar style -->
 <style>
     .top-nav {
         position: fixed;
@@ -89,16 +89,16 @@
         padding: 4px 8px;
     }
 
-    /* 为有导航栏的页面添加顶部padding */
+    /* Add top padding to pages with navigation bar */
     body:has(.top-nav) {
         padding-top: 60px;
     }
 </style>
 
-<!-- 固定顶部导航栏 -->
+<!-- Fixed top navigation bar -->
 <nav class="top-nav">
     <div class="nav-container">
-        <a href="/" class="nav-home" title="返回首页">
+        <a href="/" class="nav-home" title="Back to Home">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
             </svg>
@@ -112,14 +112,14 @@
             {% unless part == "" or part == "index.html" %}
             <span class="path-separator">/</span>
 
-            {% comment %}累积路径{% endcomment %}
+            {% comment %}Accumulate path{% endcomment %}
             {% if accumulated_path == "" %}
             {% assign accumulated_path = part %}
             {% else %}
             {% assign accumulated_path = accumulated_path | append: "/" | append: part %}
             {% endif %}
 
-            {% comment %}判断是否是最后一个部分{% endcomment %}
+            {% comment %}Check if it is the last part{% endcomment %}
             {% assign is_last = false %}
             {% if forloop.last %}
             {% assign is_last = true %}
@@ -128,7 +128,7 @@
             {% if is_last %}
             <span class="path-current">{{ part | replace: ".html", "" | replace: "-", " " }}</span>
             {% else %}
-            {% comment %}构建链接 - 目录链接到index页{% endcomment %}
+            {% comment %}Build link - Directory links to index page{% endcomment %}
             {% assign link_path = "/" | append: accumulated_path | append: "/" %}
             <a href="{{ link_path }}" class="path-link">{{ part | replace: "-", " " }}</a>
             {% endif %}

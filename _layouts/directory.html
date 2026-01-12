@@ -14,7 +14,7 @@
 <body>
 
     {% if page.url == "/" or page.url == "/index.html" %}
-    <!-- 首页显示完整header -->
+    <!-- Show full header on home page -->
     <header>
         <div class="container">
             <a id="a-title" href="{{ '/' | relative_url }}">
@@ -24,7 +24,7 @@
         </div>
     </header>
     {% else %}
-    <!-- 子页面显示悬浮导航 -->
+    <!-- Show floating navigation on subpages -->
     {% include top-nav.html %}
     {% endif %}
 
@@ -38,13 +38,13 @@
 
             {{ content }}
 
-            <!-- 自动生成子页面列表 -->
+            <!-- Automatically generate subpage list -->
             {% assign current_dir = page.url | remove: "index.html" %}
             {% assign subpages = site.pages | where_exp: "p", "p.url contains current_dir" | where_exp: "p", "p.url !=
             page.url" | sort: "path" %}
 
             {% if subpages.size > 0 %}
-            <h2>📑 目录</h2>
+            <h2>📑 Contents</h2>
             <ul class="auto-index">
                 {% for subpage in subpages %}
                 {% if subpage.title %}

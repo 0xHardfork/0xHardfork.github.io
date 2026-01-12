@@ -14,7 +14,7 @@
 <body>
 
   {% if page.url == "/" or page.url == "/index.html" %}
-  <!-- 首页显示完整header -->
+  <!-- Show full header on home page -->
   <header>
     <div class="container">
       <a id="a-title" href="{{ '/' | relative_url }}">
@@ -24,7 +24,7 @@
     </div>
   </header>
   {% else %}
-  <!-- 子页面显示悬浮导航 -->
+  <!-- Show floating navigation on subpages -->
   {% include top-nav.html %}
   {% endif %}
 

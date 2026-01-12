@@ -1,12 +1,12 @@
 {% comment %}
-动态生成分类的目录树
-参数: category - 分类对象
+Dynamically generate category directory tree with collapsible subdirectories
+Params: category - category object
 {% endcomment %}
 
 {% assign category_path = include.category.path %}
 {% assign all_pages = site.pages | where_exp: "page", "page.path contains category_path" | sort: "path" %}
 
-{% comment %}只显示有title的页面，排除index{% endcomment %}
+{% comment %}Only show pages with titles, exclude index{% endcomment %}
 {% assign valid_pages = "" | split: "" %}
 {% for page in all_pages %}
 {% if page.title and page.name != 'index.md' %}
@@ -16,7 +16,7 @@
 
 {% if valid_pages.size > 0 %}
 <ul class="topic-list">
-    {% comment %}构建目录树结构{% endcomment %}
+    {% comment %}Build directory tree structure{% endcomment %}
     {% assign processed = "" | split: "" %}
 
     {% for page in valid_pages %}
@@ -24,7 +24,7 @@
     {% assign parts = rel_path | split: "/" %}
     {% assign depth = parts.size %}
 
-    {% comment %}一级页面（直接在分类目录下）{% endcomment %}
+    {% comment %}Level 1 pages (directly under category directory){% endcomment %}
     {% if depth == 1 %}
     {% unless processed contains page.path %}
     <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
@@ -32,23 +32,26 @@
     {% endunless %}
     {% endif %}
 
-    {% comment %}二级页面（在子目录中）{% endcomment %}
+    {% comment %}Level 2 pages (in subdirectories) - collapsible{% endcomment %}
     {% if depth == 2 %}
     {% assign parent_dir = parts[0] %}
     {% assign parent_key = category_path | append: "/" | append: parent_dir %}
 
     {% unless processed contains parent_key %}
-    {% comment %}查找父目录的index页面{% endcomment %}
+    {% comment %}Find index page of parent directory{% endcomment %}
     {% assign parent_index = all_pages | where_exp: "p", "p.path contains parent_dir" | where: "name", "index.md" |
     first %}
 
-    {% if parent_index %}
-    <li><a href="{{ parent_index.url | relative_url }}">{{ parent_index.title }}</a>
-        {% else %}
-    <li>{{ parent_dir | replace: "-", " " | capitalize }}
-        {% endif %}
-
-        <ul>
+    <li class="has-children">
+        <div class="parent-item">
+            <span class="toggle-icon">▸</span>
+            {% if parent_index %}
+            <a href="{{ parent_index.url | relative_url }}">{{ parent_index.title }}</a>
+            {% else %}
+            <span class="parent-label">{{ parent_dir | replace: "-", " " | capitalize }}</span>
+            {% endif %}
+        </div>
+        <ul class="nested-list">
             {% for subpage in valid_pages %}
             {% assign sub_rel_path = subpage.path | remove: category_path | remove: "/" %}
             {% assign sub_parts = sub_rel_path | split: "/" %}
@@ -63,4 +66,30 @@
     {% endif %}
     {% endfor %}
 </ul>
+
+<script>
+    // Collapsible tree functionality
+    document.addEventListener('DOMContentLoaded', function () {
+        const parentItems = document.querySelectorAll('.topic-list .has-children .parent-item');
+
+        parentItems.forEach(function (item) {
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+                const parent = this.parentElement;
+                const nestedList = parent.querySelector('.nested-list');
+                const icon = this.querySelector('.toggle-icon');
+
+                if (nestedList.style.display === 'block') {
+                    nestedList.style.display = 'none';
+                    icon.textContent = '▸';
+                    parent.classList.remove('expanded');
+                } else {
+                    nestedList.style.display = 'block';
+                    icon.textContent = '▾';
+                    parent.classList.add('expanded');
+                }
+            });
+        });
+    });
+</script>
 {% endif %}

@@ -3,7 +3,7 @@
 
 $body-background: #0a0a0a !default;
 $body-foreground: #b0b0b0 !default;
-/* 柔和的浅灰色，不刺眼 */
+/* Soft light grey, easy on eyes */
 $header: #00ff00 !default;
 $blockquote-color: #999999 !default;
 $blockquote-border: #444444 !default;
@@ -25,7 +25,7 @@ body {
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   position: relative;
 
-  /* CRT扫描线效果 */
+  /* CRT scanline effect */
   &::before {
     content: "";
     position: fixed;
@@ -41,7 +41,7 @@ body {
     z-index: 1000;
   }
 
-  /* 轻微的屏幕闪烁效果 */
+  /* Slight screen flicker effect */
   animation: flicker 0.15s infinite;
 }
 
@@ -335,10 +335,10 @@ a {
 }
 
 /* ========================================
-   暗黑黑客风格自定义样式
+   Dark Hacker Style Custom Styles
    ======================================== */
 
-/* 终端头部 */
+/* Terminal header */
 .terminal-header {
   background: rgba(0, 0, 0, 0.8);
   border: 1px solid #00ff00;
@@ -372,7 +372,7 @@ a {
   }
 }
 
-/* 卡片网格布局 */
+/* Category grid layout */
 .category-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -386,7 +386,7 @@ a {
   }
 }
 
-/* 分类卡片 */
+/* Category card */
 .category-card {
   background: rgba(0, 0, 0, 0.6);
   border: 2px solid #00ff00;
@@ -408,9 +408,9 @@ a {
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 0;
-    /* 确保在内容下方 */
+    /* Ensure in content bottom */
     pointer-events: none;
-    /* 不阻止点击事件 */
+    /* Do not block click event */
   }
 
   &:hover {
@@ -440,7 +440,7 @@ a {
   gap: 15px;
   position: relative;
   z-index: 1;
-  /* 确保在伪元素之上 */
+  /* Ensure on top of pseudo-element */
 
   .card-icon {
     font-size: 32px;
@@ -461,12 +461,13 @@ a {
   position: relative;
   z-index: 1;
 
-  /* 确保在伪元素之上 */
+  /* Ensure on top of pseudo-element */
   p {
     color: #a0a0a0;
-    /* 柔和的浅灰色 */
+    /* Soft light grey */
     margin-bottom: 15px;
   }
+
 
   .topic-list {
     list-style: none;
@@ -485,14 +486,60 @@ a {
         text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
       }
 
-      ul {
-        list-style: none;
-        padding-left: 20px;
-        margin-top: 5px;
+      /* Collapsible parent items */
+      &.has-children {
+        &::before {
+          content: none;
+          /* Remove default bullet for parent items */
+        }
 
-        li::before {
-          content: "▹";
-          color: #00cc00;
+        .parent-item {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 4px 0;
+          transition: all 0.2s ease;
+
+          &:hover {
+            color: #00ffff;
+
+            .toggle-icon {
+              color: #00ffff;
+            }
+          }
+
+          .toggle-icon {
+            color: #00ff00;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+            font-size: 12px;
+            transition: transform 0.2s ease, color 0.2s ease;
+            flex-shrink: 0;
+          }
+
+          .parent-label {
+            color: #00ff00;
+          }
+        }
+
+        &.expanded .parent-item .toggle-icon {
+          transform: rotate(90deg);
+        }
+
+        .nested-list {
+          display: none;
+          /* Collapsed by default */
+          list-style: none;
+          padding-left: 20px;
+          margin-top: 5px;
+          border-left: 1px solid rgba(0, 255, 0, 0.2);
+
+          li {
+            &::before {
+              content: "▹";
+              color: #00cc00;
+            }
+          }
         }
       }
     }
@@ -505,7 +552,7 @@ a {
   text-align: right;
   position: relative;
   z-index: 1;
-  /* 确保按钮可点击 */
+  /* Ensure button clickable */
 }
 
 .btn-enter {
@@ -530,7 +577,7 @@ a {
   }
 }
 
-/* 状态栏 */
+/* Status bar */
 .status-bar {
   display: flex;
   justify-content: space-between;
@@ -554,11 +601,11 @@ a {
 
 .status-item {
   color: #888888;
-  /* 柔和的灰色 */
+  /* Soft grey */
 
   .status-active {
     color: #00ff00;
-    /* 保持活动状态为绿色 */
+    /* Keep active status green */
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
   }
 
@@ -575,11 +622,11 @@ a {
   }
 }
 
-/* 页脚注释 */
+/* Footer notes */
 .footer-note {
   text-align: center;
   color: #808080;
-  /* 柔和的灰色 */
+  /* Soft grey */
   font-family: Monaco, monospace;
   font-size: 13px;
   margin-top: 40px;
@@ -591,7 +638,7 @@ a {
   animation: blink 1.5s infinite;
 }
 
-/* 社交媒体链接 */
+/* Social media links */
 .social-links {
   display: flex;
   justify-content: center;
@@ -630,7 +677,7 @@ a {
   }
 }
 
-/* 改进链接样式 */
+/* Improve link styles */
 a {
   color: #00ffff;
   text-shadow: 0 0 5px rgba(0, 255, 255, 0.6);
@@ -643,7 +690,7 @@ a {
   }
 }
 
-/* 改进代码块 */
+/* Improve code blocks */
 pre {
   background: rgba(0, 0, 0, 0.95);
   border: 1px solid #00ff00;
@@ -677,7 +724,7 @@ code.highlighter-rouge {
   text-shadow: 0 0 3px rgba(0, 255, 255, 0.5);
 }
 
-/* 表格样式增强 */
+/* Enhanced table style */
 table {
   border-collapse: collapse;
   border: 1px solid #00ff00;
@@ -701,7 +748,7 @@ table {
   }
 }
 
-/* ASCII艺术样式 */
+/* ASCII art style */
 pre code {
   color: #00ff00;
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);

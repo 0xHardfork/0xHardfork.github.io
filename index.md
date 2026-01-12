@@ -11,6 +11,9 @@ title: 0xHardfork - Security Research
 
 > **[CLASSIFIED]** Advanced Security Research & Code Analysis
 
+<div class="ascii-scroll-container">
+<div class="ascii-scroll-content">
+
 ```
  ___        _   _               _ __           _    
 / _ \__  __| | | | __ _ _ __ __| |/ _| ___  _ __| | __
@@ -18,6 +21,9 @@ title: 0xHardfork - Security Research
 | |_| |>  < |  _  | (_| | | | (_| |  _| (_) | |  |   < 
 \___//_/\_\|_| |_|\__,_|_|  \__,_|_|  \___/|_|  |_|\_\
 ```
+
+</div>
+</div>
 
 <div class="category-grid">
 {% for category in site.data.categories %}

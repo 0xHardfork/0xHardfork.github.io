@@ -1,0 +1,23 @@
+<!-- 固定顶部导航栏 - 仅在非首页显示 -->
+{% unless page.url == "/" or page.url == "/index.html" %}
+<nav class="top-nav">
+    <div class="nav-container">
+        <a href="/" class="nav-home" title="返回首页">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+            </svg>
+            <span>0xHardfork</span>
+        </a>
+
+        <div class="nav-path">
+            {% assign path_parts = page.url | split: "/" %}
+            {% for part in path_parts %}
+            {% unless part == "" or part == "index.html" %}
+            <span class="path-separator">/</span>
+            <span class="path-part">{{ part | replace: ".html", "" | replace: "-", " " }}</span>
+            {% endunless %}
+            {% endfor %}
+        </div>
+    </div>
+</nav>
+{% endunless %}

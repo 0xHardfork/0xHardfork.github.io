@@ -801,6 +801,7 @@ pre code {
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
   line-height: 1.2;
 }
+
 /* ASCII art scrolling animation */
 .ascii-scroll-container {
   overflow: hidden;
@@ -814,21 +815,23 @@ pre code {
 
 .ascii-scroll-content {
   display: inline-block;
-  white-space: nowrap;
   animation: scroll-left-to-right 15s linear infinite;
-  
+
   pre {
     display: inline-block;
     margin: 0;
     padding: 10px 0;
+    white-space: pre;
+    /* Preserve line breaks */
   }
 }
 
 @keyframes scroll-left-to-right {
   0% {
-    transform: translateX(-100%);
-  }
-  100% {
     transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
   }
 }

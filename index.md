@@ -77,3 +77,50 @@ title: 0xHardfork - Security Research
   </a>
   {% endif %}
 </div>
+
+<script>
+// Collapsible tree functionality
+(function() {
+    function initCollapsibleTree() {
+        const parentItems = document.querySelectorAll('.topic-list .has-children .parent-item');
+        
+        parentItems.forEach(function(item) {
+            // Remove old listeners by cloning
+            const newItem = item.cloneNode(true);
+            item.parentNode.replaceChild(newItem, item);
+            
+            newItem.addEventListener('click', function(e) {
+                // Don't prevent default if clicking on a link
+                const target = e.target;
+                if (target.tagName === 'A' && target.classList.contains('parent-link')) {
+                    return; // Allow link to work normally
+                }
+                
+                e.preventDefault();
+                const parent = this.parentElement;
+                const nestedList = parent.querySelector('.nested-list');
+                const icon = this.querySelector('.toggle-icon');
+                
+                if (nestedList) {
+                    if (nestedList.style.display === 'block') {
+                        nestedList.style.display = 'none';
+                        icon.textContent = '▸';
+                        parent.classList.remove('expanded');
+                    } else {
+                        nestedList.style.display = 'block';
+                        icon.textContent = '▾';
+                        parent.classList.add('expanded');
+                    }
+                }
+            });
+        });
+    }
+    
+    // Initialize on page load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCollapsibleTree);
+    } else {
+        initCollapsibleTree();
+    }
+})();
+</script>

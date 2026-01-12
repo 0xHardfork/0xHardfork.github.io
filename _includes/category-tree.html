@@ -46,7 +46,7 @@ Params: category - category object
         <div class="parent-item">
             <span class="toggle-icon">▸</span>
             {% if parent_index %}
-            <a href="{{ parent_index.url | relative_url }}">{{ parent_index.title }}</a>
+            <a href="{{ parent_index.url | relative_url }}" class="parent-link">{{ parent_index.title }}</a>
             {% else %}
             <span class="parent-label">{{ parent_dir | replace: "-", " " | capitalize }}</span>
             {% endif %}
@@ -66,30 +66,4 @@ Params: category - category object
     {% endif %}
     {% endfor %}
 </ul>
-
-<script>
-    // Collapsible tree functionality
-    document.addEventListener('DOMContentLoaded', function () {
-        const parentItems = document.querySelectorAll('.topic-list .has-children .parent-item');
-
-        parentItems.forEach(function (item) {
-            item.addEventListener('click', function (e) {
-                e.preventDefault();
-                const parent = this.parentElement;
-                const nestedList = parent.querySelector('.nested-list');
-                const icon = this.querySelector('.toggle-icon');
-
-                if (nestedList.style.display === 'block') {
-                    nestedList.style.display = 'none';
-                    icon.textContent = '▸';
-                    parent.classList.remove('expanded');
-                } else {
-                    nestedList.style.display = 'block';
-                    icon.textContent = '▾';
-                    parent.classList.add('expanded');
-                }
-            });
-        });
-    });
-</script>
 {% endif %}

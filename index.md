@@ -13,17 +13,15 @@ title: 0xHardfork - Security Research
 
 <div class="ascii-scroll-container">
 <div class="ascii-scroll-content">
-
-```
- ___        _   _               _ __           _    
+<pre><code> ___        _   _               _ __           _    
 / _ \__  __| | | | __ _ _ __ __| |/ _| ___  _ __| | __
 | | | \ \/ /| |_| |/ _` | '__/ _` | |_ / _ \| '__| |/ /
 | |_| |>  < |  _  | (_| | | | (_| |  _| (_) | |  |   < 
 \___//_/\_\|_| |_|\__,_|_|  \__,_|_|  \___/|_|  |_|\_\
-```
+</code></pre>
+</div>
+</div>
 
-</div>
-</div>
 
 <div class="category-grid">
 {% for category in site.data.categories %}

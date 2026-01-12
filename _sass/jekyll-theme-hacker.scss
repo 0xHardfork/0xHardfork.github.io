@@ -407,6 +407,10 @@ a {
     background: radial-gradient(circle, rgba(0, 255, 0, 0.1) 0%, transparent 70%);
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 0;
+    /* 确保在内容下方 */
+    pointer-events: none;
+    /* 不阻止点击事件 */
   }
 
   &:hover {
@@ -434,6 +438,9 @@ a {
   display: flex;
   align-items: center;
   gap: 15px;
+  position: relative;
+  z-index: 1;
+  /* 确保在伪元素之上 */
 
   .card-icon {
     font-size: 32px;
@@ -451,7 +458,10 @@ a {
 
 .card-content {
   padding: 20px;
+  position: relative;
+  z-index: 1;
 
+  /* 确保在伪元素之上 */
   p {
     color: #a0a0a0;
     /* 柔和的浅灰色 */
@@ -493,6 +503,9 @@ a {
   padding: 15px 20px;
   border-top: 1px solid rgba(0, 255, 0, 0.3);
   text-align: right;
+  position: relative;
+  z-index: 1;
+  /* 确保按钮可点击 */
 }
 
 .btn-enter {

@@ -828,6 +828,11 @@ pre code {
     border: none;
     text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
 
+    &::before {
+      content: none;
+      /* Disable "> _" prompt for scrolling */
+    }
+
     code {
       color: #00ff00 !important;
       text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);

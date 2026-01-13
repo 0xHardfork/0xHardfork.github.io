@@ -186,6 +186,7 @@ title: 0xHardfork - Security Research
         query = query.toLowerCase();
         const results = articles.filter(a => a.title.toLowerCase().includes(query) || a.path.toLowerCase().includes(query));
         console.log('Search query:', query, 'Results:', results.length);
+        
         return results;
     }
     

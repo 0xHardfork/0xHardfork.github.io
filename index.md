@@ -141,7 +141,14 @@ title: 0xHardfork - Security Research
 (function() {
     const articles = [
         {% for page in site.pages %}{% if page.title %}{title: {{ page.title | jsonify }}, url: {{ page.url | jsonify }}, path: {{ page.path | jsonify }}},{% endif %}{% endfor %}
-    ].filter(a => a.title);
+    ].filter(a => {
+        // Exclude 404 pages, README, and other special pages
+        const excludePaths = ['404.html', '404.md', 'README.md', 'USAGE.md'];
+        const excludeTitles = ['404', 'Page Not Found'];
+        return a.title && 
+               !excludePaths.some(p => a.path.includes(p)) &&
+               !excludeTitles.some(t => a.title.includes(t));
+    });
     
     console.log('Total articles loaded:', articles.length);
     console.log('Sample articles:', articles.slice(0, 3));

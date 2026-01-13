@@ -357,6 +357,21 @@ a {
   box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
 }
 
+@media (max-width: 768px) {
+  .terminal-header {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .terminal-input {
+    font-size: 12px !important;
+  }
+
+  .terminal-cursor {
+    font-size: 12px;
+  }
+}
+
 .terminal-prompt {
   color: #00ff00;
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);

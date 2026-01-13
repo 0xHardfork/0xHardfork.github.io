@@ -162,22 +162,33 @@ title: 0xHardfork - Security Research
     function updateCursorPosition() {
         if (!terminalInput || !terminalCursor) return;
         
+        // Detect mobile devices
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+        
         const prompt = document.querySelector('.terminal-prompt');
-        const promptWidth = prompt ? prompt.offsetWidth+20 : 200;
+        if (!prompt) return;
+        
+        // Get actual rendered widths
+        const promptWidth = prompt.getBoundingClientRect().width;
         const inputValue = terminalInput.value;
         
-        // Create temporary span to measure text width
+        // Create temporary span to measure text width accurately
         const tempSpan = document.createElement('span');
         tempSpan.style.font = window.getComputedStyle(terminalInput).font;
         tempSpan.style.visibility = 'hidden';
         tempSpan.style.position = 'absolute';
-        tempSpan.textContent = inputValue;
+        tempSpan.style.whiteSpace = 'pre';
+        tempSpan.textContent = inputValue || '';
         document.body.appendChild(tempSpan);
-        const textWidth = tempSpan.offsetWidth;
+        const textWidth = tempSpan.getBoundingClientRect().width;
         document.body.removeChild(tempSpan);
         
+        // Mobile adjustment
+        const spacing = isMobile ? 5 : 10;
+        const cursorLeft = promptWidth + textWidth + spacing;
+        
         // Position cursor after prompt + input text
-        terminalCursor.style.left = (promptWidth + textWidth + 10) + 'px';
+        terminalCursor.style.left = cursorLeft + 'px';
         terminalCursor.style.display = 'inline';
     }
     

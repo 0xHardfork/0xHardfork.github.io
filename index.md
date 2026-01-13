@@ -156,7 +156,7 @@ title: 0xHardfork - Security Research
         if (!terminalInput || !terminalCursor) return;
         
         const prompt = document.querySelector('.terminal-prompt');
-        const promptWidth = prompt ? prompt.offsetWidth : 200;
+        const promptWidth = prompt ? prompt.offsetWidth : 220;
         const inputValue = terminalInput.value;
         
         // Create temporary span to measure text width

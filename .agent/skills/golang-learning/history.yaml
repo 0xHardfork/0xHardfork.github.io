@@ -1,0 +1,23 @@
+# Golang Learning History
+# This file is auto-managed by the golang-learning skill.
+# Each entry records a completed daily learning session.
+# DO NOT manually reorder entries — they are stored chronologically.
+
+history:
+  - date: "2026-03-08"
+    topic_key: "go_setup"
+    title: "Setting Up Go & Your First Program"
+    category: "Foundations"
+    file: "2026-03-08/go_setup.md"
+
+  - date: "2026-03-12"
+    topic_key: "day1_fundamentals_types"
+    title: "0x01: Go Fundamentals & Type System"
+    category: "Intensive Track"
+    file: "pages/development/golang/2026-03-12_golang01.md"
+
+  - date: "2026-03-13"
+    topic_key: "day2_concurrency_errors"
+    title: "0x02: Concurrency & Error Philosophy"
+    category: "Intensive Track"
+    file: "pages/development/golang/2026-03-13_golang01.md"

@@ -1,0 +1,17 @@
+# Kubernetes Security Learning History
+# This file is auto-managed by the k8s-security skill.
+# Each entry records a completed daily learning session.
+# DO NOT manually reorder entries — they are stored chronologically.
+
+history:
+  - date: "2026-03-12"
+    topic_key: "day01_k8s_architecture"
+    title: "0x01: Cluster Architecture & Control Plane"
+    category: "Phase 1: Kuberenetes Fundamentals"
+    file: "pages/cloud-security/k8s-security/2026-03-12_k8s01.md"
+
+  - date: "2026-03-13"
+    topic_key: "day02_kubectl_basics"
+    title: "0x02: The kubectl CLI"
+    category: "Phase 1: Kuberenetes Fundamentals"
+    file: "pages/cloud-security/k8s-security/2026-03-13_k8s01.md"

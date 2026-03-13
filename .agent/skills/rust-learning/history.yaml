@@ -1,0 +1,5 @@
+- date: "2026-03-13"
+  topic_key: "day1_fundamentals"
+  title: "0x01: Rust Fundamentals"
+  category: "Basic Syntax & Core"
+  file: "pages/development/rust/2026-03-13_rust01.md"

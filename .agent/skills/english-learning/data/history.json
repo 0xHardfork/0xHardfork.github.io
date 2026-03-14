@@ -149,6 +149,31 @@
         "english": 39,
         "japanese": 40
       }
+    },
+    {
+      "date": "2026-03-14",
+      "difficulty": "intermediate",
+      "scenarios": [
+        {
+          "name": "Code Review Discussion",
+          "type": "meeting",
+          "category": "it"
+        },
+        {
+          "name": "Incident Response",
+          "type": "casual",
+          "category": "it"
+        },
+        {
+          "name": "Weekend Plans",
+          "type": "casual",
+          "category": "daily"
+        }
+      ],
+      "vocabulary_count": {
+        "english": 24,
+        "japanese": 17
+      }
     }
   ]
 }

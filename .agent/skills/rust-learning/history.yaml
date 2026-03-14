@@ -3,3 +3,8 @@
   title: "0x01: Rust Fundamentals"
   category: "Basic Syntax & Core"
   file: "pages/development/rust/2026-03-13_rust01.md"
+- date: "2026-03-14"
+  topic_key: "day2_ownership_borrowing"
+  title: "0x02: Ownership & Borrowing"
+  category: "Phase 1: Basic Syntax & Core (0x01 - 0x05)"
+  file: "pages/development/rust/2026-03-14_rust01.md"

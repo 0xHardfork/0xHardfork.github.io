@@ -21,3 +21,9 @@ history:
     title: "0x02: Concurrency & Error Philosophy"
     category: "Intensive Track"
     file: "pages/development/golang/2026-03-13_golang01.md"
+
+  - date: "2026-03-14"
+    topic_key: "day3_stdlib_io"
+    title: "0x03: Standard Library, I/O & Context"
+    category: "Intensive Track"
+    file: "pages/development/golang/2026-03-14_golang01.md"

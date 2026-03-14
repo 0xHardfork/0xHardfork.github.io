@@ -83,12 +83,12 @@ class VocabularyArchiver:
                 
                 for row in rows:
                     parts = [p.strip() for p in row.split('|')]
-                    if len(parts) >= 5 and parts[1]:  # Has word content
+                    if len(parts) >= 6 and parts[1]:  # Has word content
                         vocabulary.append({
                             'word': parts[1],
-                            'definition': parts[2],
-                            'cefr_level': parts[3],
-                            'example': parts[4]
+                            'definition': f"{parts[2]} ({parts[3]})",
+                            'cefr_level': parts[4],
+                            'example': parts[5]
                         })
         
         return vocabulary

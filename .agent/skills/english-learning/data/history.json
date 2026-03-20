@@ -1,0 +1,204 @@
+{
+  "sessions": [
+    {
+      "date": "2026-02-28",
+      "difficulty": "intermediate",
+      "scenarios": [
+        {
+          "name": "Incident Response",
+          "type": "meeting",
+          "category": "it"
+        },
+        {
+          "name": "Tech Support Call",
+          "type": "casual",
+          "category": "daily"
+        },
+        {
+          "name": "Coffee Shop Chat",
+          "type": "casual",
+          "category": "daily"
+        }
+      ],
+      "vocabulary_count": {
+        "english": 22,
+        "japanese": 19
+      }
+    },
+    {
+      "date": "2026-01-31",
+      "difficulty": "intermediate",
+      "scenarios": [
+        {
+          "name": "Cloud Security Review",
+          "type": "meeting",
+          "category": "it"
+        },
+        {
+          "name": "Technical Design Discussion",
+          "type": "casual",
+          "category": "it"
+        },
+        {
+          "name": "Weekend Plans",
+          "type": "casual",
+          "category": "daily"
+        }
+      ],
+      "vocabulary_count": {
+        "english": 38,
+        "japanese": 29
+      }
+    },
+    {
+      "date": "2026-02-01",
+      "difficulty": "intermediate",
+      "scenarios": [
+        {
+          "name": "Sprint Planning Meeting",
+          "type": "meeting",
+          "category": "it"
+        },
+        {
+          "name": "Performance Optimization",
+          "type": "casual",
+          "category": "it"
+        },
+        {
+          "name": "Sports & Fitness",
+          "type": "casual",
+          "category": "daily"
+        }
+      ],
+      "vocabulary_count": {
+        "english": 107,
+        "japanese": 122
+      }
+    },
+    {
+      "date": "2026-02-02",
+      "difficulty": "intermediate",
+      "scenarios": [
+        {
+          "name": "Kubernetes Security",
+          "type": "meeting",
+          "category": "it"
+        },
+        {
+          "name": "Code Review Discussion",
+          "type": "casual",
+          "category": "it"
+        },
+        {
+          "name": "Sports & Fitness",
+          "type": "casual",
+          "category": "daily"
+        }
+      ],
+      "vocabulary_count": {
+        "english": 46,
+        "japanese": 56
+      }
+    },
+    {
+      "date": "2026-02-12",
+      "difficulty": "intermediate",
+      "scenarios": [
+        {
+          "name": "Container Security",
+          "type": "casual",
+          "category": "it"
+        },
+        {
+          "name": "Zero Trust Architecture",
+          "type": "meeting",
+          "category": "it"
+        },
+        {
+          "name": "Restaurant Ordering",
+          "type": "casual",
+          "category": "daily"
+        }
+      ],
+      "vocabulary_count": {
+        "english": 17,
+        "japanese": 17
+      }
+    },
+    {
+      "date": "2026-02-17",
+      "difficulty": "intermediate",
+      "scenarios": [
+        {
+          "name": "Debugging Session",
+          "type": "casual",
+          "category": "it"
+        },
+        {
+          "name": "Sprint Planning Meeting",
+          "type": "meeting",
+          "category": "it"
+        },
+        {
+          "name": "Restaurant Ordering",
+          "type": "casual",
+          "category": "daily"
+        }
+      ],
+      "vocabulary_count": {
+        "english": 39,
+        "japanese": 40
+      }
+    },
+    {
+      "date": "2026-03-14",
+      "difficulty": "intermediate",
+      "scenarios": [
+        {
+          "name": "Code Review Discussion",
+          "type": "meeting",
+          "category": "it"
+        },
+        {
+          "name": "Incident Response",
+          "type": "casual",
+          "category": "it"
+        },
+        {
+          "name": "Weekend Plans",
+          "type": "casual",
+          "category": "daily"
+        }
+      ],
+      "vocabulary_count": {
+        "english": 24,
+        "japanese": 17
+      }
+    },
+    {
+      "date": "2026-03-15",
+      "difficulty": "intermediate",
+      "scenarios": [
+        {
+          "name": "API Integration Planning",
+          "type": "meeting",
+          "category": "it"
+        },
+        {
+          "name": "DevSecOps Pipeline",
+          "type": "casual",
+          "category": "it"
+        },
+        {
+          "name": "Travel Planning",
+          "type": "casual",
+          "category": "daily"
+        }
+      ],
+      "vocabulary_count": {
+        "english": 0,
+        "japanese": 0
+      }
+    }
+  ]
+}

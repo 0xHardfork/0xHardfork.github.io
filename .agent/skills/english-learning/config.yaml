@@ -1,0 +1,173 @@
+# Configuration for English Learning Skill
+
+# Current difficulty level
+# Options: elementary (初级), intermediate (中级), advanced (高级)
+difficulty: intermediate
+
+# IT/Computer Related Scenarios
+it_scenarios:
+  # Development & Coding
+  - name: "Code Review Discussion"
+    name_cn: "代码审查讨论"
+    description: "Reviewing pull requests and discussing code quality"
+    
+  - name: "Sprint Planning Meeting"
+    name_cn: "敏捷冲刺规划会议"
+    description: "Planning tasks for the upcoming sprint"
+    
+  - name: "Debugging Session"
+    name_cn: "调试会话"
+    description: "Collaborative debugging and problem-solving"
+    
+  - name: "Technical Design Discussion"
+    name_cn: "技术设计讨论"
+    description: "Discussing system architecture and design patterns"
+    
+  - name: "API Integration Planning"
+    name_cn: "API集成规划"
+    description: "Planning how to integrate with external APIs"
+    
+  # DevOps & Infrastructure
+  - name: "Deployment Discussion"
+    name_cn: "部署讨论"
+    description: "Planning and troubleshooting deployments"
+    
+  - name: "Performance Optimization"
+    name_cn: "性能优化"
+    description: "Discussing application performance improvements"
+    
+  - name: "Security Review"
+    name_cn: "安全审查"
+    description: "Reviewing security practices and vulnerabilities"
+    
+  # DevSecOps & Cloud Security
+  - name: "DevSecOps Pipeline"
+    name_cn: "DevSecOps流水线"
+    description: "Discussing security integration in CI/CD pipelines"
+    
+  - name: "Cloud Security Review"
+    name_cn: "云安全审查"
+    description: "Reviewing cloud infrastructure security and compliance"
+    
+  - name: "Container Security"
+    name_cn: "容器安全"
+    description: "Discussing Docker and container security best practices"
+    
+  - name: "Infrastructure as Code Review"
+    name_cn: "基础设施即代码审查"
+    description: "Reviewing Terraform, CloudFormation security configurations"
+    
+  - name: "Kubernetes Security"
+    name_cn: "Kubernetes安全"
+    description: "Discussing K8s security, RBAC, and pod security policies"
+    
+  - name: "Zero Trust Architecture"
+    name_cn: "零信任架构"
+    description: "Planning zero trust security implementation"
+    
+  # Meetings & Communication
+  - name: "Stand-up Meeting"
+    name_cn: "每日站会"
+    description: "Daily team synchronization meeting"
+    
+  - name: "Tech Talk Discussion"
+    name_cn: "技术分享讨论"
+    description: "Discussing new technologies or learning topics"
+    
+  - name: "Incident Response"
+    name_cn: "事故响应"
+    description: "Handling production incidents and outages"
+    
+  - name: "Requirements Gathering"
+    name_cn: "需求收集"
+    description: "Discussing project requirements with stakeholders"
+
+# Daily Life Scenarios
+daily_scenarios:
+  # Food & Dining
+  - name: "Restaurant Ordering"
+    name_cn: "餐厅点餐"
+    description: "Ordering food at a restaurant"
+    
+  - name: "Coffee Shop Chat"
+    name_cn: "咖啡店闲聊"
+    description: "Casual conversation at a coffee shop"
+    
+  - name: "Grocery Shopping"
+    name_cn: "超市购物"
+    description: "Shopping for groceries"
+    
+  # Social & Entertainment
+  - name: "Weekend Plans"
+    name_cn: "周末计划"
+    description: "Making plans with friends for the weekend"
+    
+  - name: "Movie Discussion"
+    name_cn: "电影讨论"
+    description: "Talking about movies you've watched"
+    
+  - name: "Sports & Fitness"
+    name_cn: "运动健身"
+    description: "Discussing exercise and fitness activities"
+    
+  - name: "Hobby Talk"
+    name_cn: "爱好交流"
+    description: "Sharing interests and hobbies"
+    
+  # Travel & Transportation
+  - name: "Travel Planning"
+    name_cn: "旅行规划"
+    description: "Planning a trip or vacation"
+    
+  - name: "Public Transportation"
+    name_cn: "公共交通"
+    description: "Using buses, trains, or subways"
+    
+  - name: "Hotel Check-in"
+    name_cn: "酒店入住"
+    description: "Checking into a hotel"
+    
+  # Services
+  - name: "Doctor's Appointment"
+    name_cn: "医生预约"
+    description: "Making or attending a doctor's appointment"
+    
+  - name: "Bank Services"
+    name_cn: "银行服务"
+    description: "Handling banking transactions"
+    
+  - name: "Tech Support Call"
+    name_cn: "技术支持电话"
+    description: "Getting help with a technical issue"
+    
+  - name: "Apartment Hunting"
+    name_cn: "找房子"
+    description: "Looking for a place to rent"
+
+# Dialogue type options
+dialogue_types:
+  - name: "meeting"
+    name_cn: "会议"
+    description: "Formal meeting context"
+    
+  - name: "casual"
+    name_cn: "日常同事沟通"
+    description: "Informal communication"
+
+# Language settings
+languages:
+  - chinese
+  - english
+  - japanese
+
+# Dialogue generation parameters
+dialogue_parameters:
+  min_exchanges: 10
+  max_exchanges: 15
+  min_speakers: 2
+  max_speakers: 4
+  
+# History settings
+history:
+  max_recent_scenarios: 10  # Number of recent scenarios to track
+  avoid_repeat_days: 3       # Avoid repeating scenarios within this many days

@@ -1,0 +1,11 @@
+# Golang Learning History
+# This file is auto-managed by the golang-learning skill.
+# Each entry records a completed daily learning session.
+# DO NOT manually reorder entries — they are stored chronologically.
+
+history:
+  - date: "2026-03-20"
+    topic_key: "day1_basics_control"
+    title: "0x01: Basics, Control Flow & Functions"
+    category: "Intensive Track"
+    file: "pages/development/golang/2026-03-20_golang01.md"

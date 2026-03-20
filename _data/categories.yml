@@ -1,0 +1,20 @@
+# Category configuration for the homepage
+# Each category will generate a card automatically
+
+- id: cloud-security
+  name: Cloud Security
+  icon: ☁️
+  description: Cloud native security technologies and practices
+  path: pages/cloud-security
+
+- id: development
+  name: Development
+  icon: 🚀
+  description: Development
+  path: pages/development
+
+- id: other
+  name: Other
+  icon: 📝
+  description: Other
+  path: pages/other

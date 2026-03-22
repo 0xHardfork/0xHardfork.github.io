@@ -199,6 +199,31 @@
         "english": 0,
         "japanese": 0
       }
+    },
+    {
+      "date": "2026-03-22",
+      "difficulty": "intermediate",
+      "scenarios": [
+        {
+          "name": "Deployment Discussion",
+          "type": "meeting",
+          "category": "it"
+        },
+        {
+          "name": "Kubernetes Security",
+          "type": "casual",
+          "category": "it"
+        },
+        {
+          "name": "Hotel Check-in",
+          "type": "casual",
+          "category": "daily"
+        }
+      ],
+      "vocabulary_count": {
+        "english": 42,
+        "japanese": 27
+      }
     }
   ]
 }

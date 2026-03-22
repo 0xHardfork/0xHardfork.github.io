@@ -1,7 +1,7 @@
 # English Vocabulary Archive
 
-**Last Updated:** 2026-03-15
-*Total words: 53*
+**Last Updated:** 2026-03-22
+*Total words: 77*
 
 | Word | Definition | CEFR Level | Example | Date Added | Source Scenario |
 |---|---|---|---|---|---|
@@ -58,4 +58,27 @@
 | lock down | 敲定 / 锁定 | C1 | Have we locked down the Airbnb yet? | 2026-03-15 | Multiple scenarios |
 | itinerary | 行程表 | C1 | what's on the itinerary for day one? | 2026-03-15 | Multiple scenarios |
 | crash | 倒头就睡 / 累垮 | C1 | grab some ramen nearby, and crash | 2026-03-15 | Multiple scenarios |
+| queued up | 排好队的/准备就绪的 | B2 | the v2.4 release queued up | 2026-03-22 | Deployment Discussion |
+| smoke tests | 冒烟测试 | B2 | All green on the smoke tests | 2026-03-22 | Deployment Discussion |
+| dry-ran | 模拟运行（过去式） | C1 | I dry-ran it against a snapshot | 2026-03-22 | Deployment Discussion |
+| lock contention | 锁竞争 | C1 | that lock contention issue | 2026-03-22 | Deployment Discussion |
+| backward-compatible | 向后兼容的 | B2 | backward-compatible with the old schema | 2026-03-22 | Deployment Discussion |
+| sketchy | 冒险的/不靠谱的 | B2 | Dropping columns under load is sketchy | 2026-03-22 | Deployment Discussion |
+| goes sideways | 出了差错 | B2 | if something goes sideways | 2026-03-22 | Deployment Discussion |
+| readiness probe | 就绪探针 | C1 | readiness probe checks | 2026-03-22 | Deployment Discussion |
+| feature flags | 功能开关 | B2 | feature flags are toggled off | 2026-03-22 | Deployment Discussion |
+| turns out | 结果是 | B1 | Turns out someone deployed a container | 2026-03-22 | Kubernetes Security |
+| straight-up | 直接地 | B2 | straight-up rejected it | 2026-03-22 | Kubernetes Security |
+| baked in | 写死的/内置的 | B2 | had USER root baked in | 2026-03-22 | Kubernetes Security |
+| scoped it down | 缩小范围/权限 | B2 | never scoped it down | 2026-03-22 | Kubernetes Security |
+| ticking time bomb | 定时炸弹 | B2 | That's a ticking time bomb | 2026-03-22 | Kubernetes Security |
+| keys to the kingdom | 最高权限 | C1 | got the keys to the kingdom | 2026-03-22 | Kubernetes Security |
+| poke around | 随意查看/翻找 | B2 | I was poking around yesterday | 2026-03-22 | Kubernetes Security |
+| pull that up | 调出/查一下 | B1 | Let me pull that up | 2026-03-22 | Hotel Check-in |
+| sleep in | 睡懒觉 | B1 | extra half hour to sleep in | 2026-03-22 | Hotel Check-in |
+| stick with | 继续用/坚持 | B1 | We'll stick with the free one | 2026-03-22 | Hotel Check-in |
+| fair warning | 提前提醒 | B2 | Fair warning, it gets pretty packed | 2026-03-22 | Hotel Check-in |
+| packed | 挤满的 | B1 | gets pretty packed on weekends | 2026-03-22 | Hotel Check-in |
+| pencil in | 临时预定 | B2 | pencil you in now | 2026-03-22 | Hotel Check-in |
+| say no more | 不用多说了 | B2 | say no more | 2026-03-22 | Hotel Check-in |
 ---

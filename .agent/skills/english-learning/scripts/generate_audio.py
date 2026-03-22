@@ -97,7 +97,8 @@ def extract_dialogue_section(markdown_content, language="english"):
                 if len(parts) >= 3:  # Should have at least: '', dialogue, translation, ''
                     dialogue_text = parts[1].strip()
                     # Extract speaker and text from **Speaker**: text format
-                    speaker_match = re.match(r'\*\*(.+?)\*\*:\s*(.+)', dialogue_text)
+                    # Support both half-width (:) and full-width (：) colons
+                    speaker_match = re.match(r'\*\*(.+?)\*\*\s*[:：]\s*(.+)', dialogue_text)
                     if speaker_match:
                         speaker, text = speaker_match.groups()
                         dialogue_lines.append((speaker, text))

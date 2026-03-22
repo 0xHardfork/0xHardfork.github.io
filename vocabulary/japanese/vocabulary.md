@@ -1,7 +1,7 @@
 # Japanese Vocabulary Archive
 
-**Last Updated:** 2026-03-15
-*Total words: 47*
+**Last Updated:** 2026-03-22
+*Total words: 65*
 
 | Word | Kana (or Definition) | CEFR Level | Example | Date Added | Source Scenario |
 |---|---|---|---|---|---|
@@ -52,4 +52,22 @@
 | ぶっちゃけ言うと | ぶっちゃけいうと (老实说 / 坦白讲) | C1 | ぶっちゃけ言うと、荷物を置いて | 2026-03-15 | Multiple scenarios |
 | 寝落ちする | ねおちする (倒头就睡 / 不知不觉睡着) | B2 | そのまま寝落ちするだけかな | 2026-03-15 | Multiple scenarios |
 | 時差ボケ | じさぼけ (时差反应) | B1 | まちがいなくひどい時差ボケになるだろうし | 2026-03-15 | Multiple scenarios |
+| スナップショット | すなっぷしょっと (快照) | B2 | 本番のスナップショットでリハーサル | 2026-03-22 | Deployment Discussion |
+| 後方互換性 | こうほうごかんせい (向后兼容性) | C1 | 旧スキーマとの後方互換性 | 2026-03-22 | Deployment Discussion |
+| 負荷テスト | ふかてすと (压力测试) | B2 | 負荷テストを設定して | 2026-03-22 | Deployment Discussion |
+| ロック競合 | ろっくきょうごう (锁竞争) | C1 | ロック競合の問題 | 2026-03-22 | Deployment Discussion |
+| リスキー | りすきー (有风险的) | B1 | ちょっとリスキーです | 2026-03-22 | Deployment Discussion |
+| 違反 | いはん (违规/违反) | B2 | セキュリティコンテキスト違反 | 2026-03-22 | Kubernetes Security |
+| バッサリ | ばっさり (果断地) | B2 | バッサリ拒否した | 2026-03-22 | Kubernetes Security |
+| 切り替える | きりかえる (切换) | B1 | enforceに切り替えた | 2026-03-22 | Kubernetes Security |
+| 時限爆弾 | じげんばくだん (定时炸弹) | B2 | 時限爆弾だよ | 2026-03-22 | Kubernetes Security |
+| 漏洩 | ろうえい (泄露) | C1 | トークンが漏洩したら | 2026-03-22 | Kubernetes Security |
+| 絞る | しぼる (缩小/收紧) | B2 | スコープを絞るPR | 2026-03-22 | Kubernetes Security |
+| 監査ログ | かんさろぐ (审计日志) | B2 | 監査ログを有効にした？ | 2026-03-22 | Kubernetes Security |
+| 禁煙室 | きんえんしつ (无烟房) | B1 | 禁煙室でお間違いないでしょうか | 2026-03-22 | Hotel Check-in |
+| 空室状況 | くうしつじょうきょう (空房情况) | B1 | 空室状況を確認しますね | 2026-03-22 | Hotel Check-in |
+| 仮で押さえる | かりでおさえる (临时预留) | B2 | 仮で押さえておきましょうか | 2026-03-22 | Hotel Check-in |
+| 連れ | つれ (同伴/另一半) | B1 | 連れが枕大好きなんで | 2026-03-22 | Hotel Check-in |
+| かしこまりました | かしこまりました (明白了(敬语)) | B1 | かしこまりました | 2026-03-22 | Hotel Check-in |
+| 屋上 | おくじょう (天台/屋顶) | B1 | 屋上にプールもあります | 2026-03-22 | Hotel Check-in |
 ---

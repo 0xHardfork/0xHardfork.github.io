@@ -14,9 +14,9 @@ title: 0xHardfork - Security Research
 <canvas id="matrix-canvas" class="matrix-canvas"></canvas>
 
 
-# 0xHardfork Security Lab
+# 0xHardfork Blog
 
-> **[CLASSIFIED]** Advanced Security Research & Code Analysis
+> Security Research & Code Analysis
 
 <div class="ascii-scroll-container">
 <div class="ascii-scroll-content">

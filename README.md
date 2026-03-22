@@ -1,3 +1,3 @@
-# 0xHardfork Security Lab
+# 0xHardfork Blog
 
 Visit https://0xhardfork.github.io 

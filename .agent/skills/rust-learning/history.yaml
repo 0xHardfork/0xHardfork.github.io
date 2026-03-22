@@ -1,6 +1,6 @@
 history:
-  - date: "2026-03-20"
+  - date: "2026-03-22"
     topic_key: "day1_fundamentals"
     title: "0x01: Rust Fundamentals"
     category: "Zero to Mastery"
-    file: "pages/development/rust/2026-03-20_rust01.md"
+    file: "pages/development/rust/2026-03-22_rust01.md"

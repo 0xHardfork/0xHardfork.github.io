@@ -4,8 +4,8 @@
 # DO NOT manually reorder entries — they are stored chronologically.
 
 history:
-  - date: "2026-03-20"
+  - date: "2026-03-22"
     topic_key: "day01_k8s_architecture"
     title: "0x01: Cluster Architecture & Control Plane"
-    category: "Phase 1: Kuberenetes Fundamentals"
-    file: "pages/cloud-security/k8s-security/2026-03-20_k8s01.md"
+    category: "Phase 1: Kubernetes Fundamentals"
+    file: "pages/cloud-security/k8s-security/2026-03-22_k8s01.md"

@@ -9,3 +9,9 @@ history:
     title: "0x01: Basics, Control Flow & Functions"
     category: "Intensive Track"
     file: "pages/development/golang/2026-03-20_golang01.md"
+
+  - date: "2026-03-22"
+    topic_key: "day2_data_structs"
+    title: "0x02: Arrays, Slices, Maps & Structs"
+    category: "Intensive Track"
+    file: "pages/development/golang/2026-03-22_golang01.md"

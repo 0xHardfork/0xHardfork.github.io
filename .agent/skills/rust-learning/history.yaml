@@ -4,3 +4,9 @@ history:
     title: "0x01: Rust Fundamentals"
     category: "Zero to Mastery"
     file: "pages/development/rust/2026-03-22_rust01.md"
+
+  - date: "2026-04-02"
+    topic_key: "day2_ownership_borrowing"
+    title: "0x02: Ownership & Borrowing"
+    category: "Zero to Mastery"
+    file: "pages/development/rust/2026-04-02_rust01.md"

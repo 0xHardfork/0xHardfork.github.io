@@ -15,3 +15,9 @@ history:
     title: "0x02: Arrays, Slices, Maps & Structs"
     category: "Intensive Track"
     file: "pages/development/golang/2026-03-22_golang01.md"
+
+  - date: "2026-04-02"
+    topic_key: "day3_interfaces_err"
+    title: "0x03: Interfaces & Error Handling"
+    category: "Intensive Track"
+    file: "pages/development/golang/2026-04-02_golang01.md"

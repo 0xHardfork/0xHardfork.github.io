@@ -21,3 +21,9 @@ history:
     title: "0x03: Interfaces & Error Handling"
     category: "Intensive Track"
     file: "pages/development/golang/2026-04-02_golang01.md"
+
+  - date: "2026-04-06"
+    topic_key: "day4_concurrency"
+    title: "0x04: Goroutines & Channels"
+    category: "Intensive Track"
+    file: "pages/development/golang/2026-04-06_golang01.md"

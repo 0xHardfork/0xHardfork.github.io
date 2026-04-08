@@ -6,13 +6,16 @@
   icon: ☁️
   description: Cloud native security technologies and practices
   path: pages/cloud-security
-
+- id: web3
+  name: On-chain Security
+  icon: ₿
+  description: Vulnerability research, smart contract auditing, and protocol security.
+  path: pages/web3
 - id: development
   name: Development
   icon: 🚀
   description: Development
   path: pages/development
-
 - id: other
   name: Other
   icon: 📝

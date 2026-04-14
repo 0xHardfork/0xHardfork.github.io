@@ -27,3 +27,9 @@ history:
     title: "0x03-Extra: Production Deployment — Containerising a web.jar with 2-Pod Load Balancing"
     category: "Phase 1: Kubernetes Fundamentals (Bonus)"
     file: "pages/cloud-security/k8s-security/2026-04-06_k8s02.md"
+
+  - date: "2026-04-14"
+    topic_key: "day04_services_networking"
+    title: "0x04: Services & Basic Networking"
+    category: "Phase 1: Kubernetes Fundamentals"
+    file: "pages/cloud-security/k8s-security/2026-04-14_k8s01.md"

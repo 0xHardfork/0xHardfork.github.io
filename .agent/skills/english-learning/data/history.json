@@ -224,6 +224,31 @@
         "english": 42,
         "japanese": 27
       }
+    },
+    {
+      "date": "2026-04-14",
+      "difficulty": "intermediate",
+      "scenarios": [
+        {
+          "name": "Code Review Discussion",
+          "type": "meeting",
+          "category": "it"
+        },
+        {
+          "name": "Debugging Session",
+          "type": "casual",
+          "category": "it"
+        },
+        {
+          "name": "Coffee Shop Chat",
+          "type": "casual",
+          "category": "daily"
+        }
+      ],
+      "vocabulary_count": {
+        "english": 18,
+        "japanese": 18
+      }
     }
   ]
 }

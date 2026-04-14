@@ -27,3 +27,9 @@ history:
     title: "0x04: Goroutines & Channels"
     category: "Intensive Track"
     file: "pages/development/golang/2026-04-06_golang01.md"
+
+  - date: "2026-04-14"
+    topic_key: "day5_sync_context"
+    title: "0x05: Sync & Context Packages"
+    category: "Intensive Track"
+    file: "pages/development/golang/2026-04-14_golang01.md"

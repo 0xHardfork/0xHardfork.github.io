@@ -10,3 +10,9 @@ history:
     title: "0x02: Ownership & Borrowing"
     category: "Zero to Mastery"
     file: "pages/development/rust/2026-04-02_rust01.md"
+
+  - date: "2026-04-14"
+    topic_key: "day3_pattern_matching"
+    title: "0x03: Pattern Matching Deep Dive"
+    category: "Zero to Mastery"
+    file: "pages/development/rust/2026-04-14_rust01.md"

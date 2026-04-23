@@ -3,3 +3,9 @@
   title: "0x01: Blockchain Basics, Consensus, & P2P"
   category: "Phase 1: Web3 Fundamentals & Demos"
   file: "pages/web3/security/2026-04-08_web3sec01.md"
+
+- date: "2026-04-23"
+  topic_key: "day01_blockchain_basics_lab"
+  title: "0x01 Lab: Foundry Hands-on — Install, Init, Test"
+  category: "Phase 1: Web3 Fundamentals & Demos"
+  file: "pages/web3/security/2026-04-23_web3sec01_lab.md"

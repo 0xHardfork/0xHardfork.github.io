@@ -1,0 +1,19 @@
+# Japanese Vocabulary Learning Progress
+# This file tracks the current position in notes.csv
+# Do NOT edit manually — updated by the skill after each session
+
+last_updated: "2026-04-25"
+current_line: 32           # CSV line number (1-indexed, line 1 = header, start from 2)
+total_words: 10168
+words_per_day_min: 28
+words_per_day_max: 35
+days_completed: 1
+current_phase: "Phase 1 - N5+N4"
+history:
+  - date: "2026-04-25"
+    day_number: 1
+    start_line: 2
+    end_line: 31
+    word_count: 30
+    level: "1-N4+N5"
+    file: "2026-04-25_ja001.md"

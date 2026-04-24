@@ -48,8 +48,8 @@ Params: category - category object
 
     {% unless processed_parents contains parent_dir %}
     {% comment %}Find or create parent directory listing{% endcomment %}
-    {% assign parent_index = all_pages | where_exp: "p", "p.path contains parent_dir" | where: "name", "index.md" |
-    first %}
+    {% assign parent_index_path = category_path | append: "/" | append: parent_dir | append: "/index.md" %}
+    {% assign parent_index = all_pages | where: "path", parent_index_path | first %}
 
     <li class="has-children">
         <div class="parent-item">

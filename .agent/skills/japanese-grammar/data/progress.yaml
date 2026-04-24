@@ -1,0 +1,18 @@
+# Japanese Grammar Learning Progress
+# This file tracks the current position in grammar.csv
+# Do NOT edit manually — updated by the skill after each session
+
+last_updated: "2026-04-25"
+current_line: 12          # CSV line number (1-indexed, line 1 = header, start from 2)
+total_grammar_points: 797
+grammar_per_day: 10
+days_completed: 1
+current_phase: "Phase 1 - N4+N3"
+history:
+  - date: "2026-04-25"
+    day_number: 1
+    start_line: 2
+    end_line: 11
+    grammar_count: 10
+    level: "N4+N3"
+    file: "2026-04-25_gr001.md"

@@ -77,7 +77,7 @@ For each word, the AI must generate:
 **Example Sentence Guidelines:**
 - Must be natural, daily-use Japanese
 - Difficulty should match the word's JLPT level
-- Include furigana for kanji: 漢字（かんじ）format
+- **Do NOT include furigana** in parentheses like 漢字（かんじ） — the TTS audio will read both kanji and reading, causing double-reading. Write plain Japanese only: 漢字
 - Provide Chinese translation
 - Use the target word naturally in context
 
@@ -218,7 +218,7 @@ After generating all vocabulary cards, compose a **short story / essay** that na
 - The story should be coherent and natural — not a forced word list
 - Match difficulty to the current JLPT level (simpler stories for N5, more complex for N1)
 - Length: 200–400 characters for N5/N4, 300–600 characters for N3+
-- Include furigana for kanji: 漢字（かんじ）format
+- **Do NOT include furigana** in parentheses like 漢字（かんじ） — write plain Japanese only. The TTS audio script strips （） annotations before synthesis, but writing them causes double-reading in audio.
 - Provide full Chinese translation below the story
 - Add a word annotation table listing all today's words in order of appearance
 - The story section goes **before** the summary table in the markdown output

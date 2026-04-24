@@ -26,6 +26,22 @@ except ImportError:
 VOICE_JA = "ja-JP-NanamiNeural"  # Natural Japanese female voice
 
 
+def strip_furigana(text):
+    """
+    Remove furigana annotations in full-width parentheses from Japanese text.
+    e.g. 漢字（かんじ） → 漢字
+    This prevents TTS from reading both the kanji and its reading aloud.
+
+    Args:
+        text: Japanese text potentially containing （reading） annotations
+
+    Returns:
+        str: Text with all （...） removed
+    """
+    # Remove full-width parentheses and their contents: （...）
+    return re.sub(r'（[^）]*）', '', text)
+
+
 def extract_words(markdown_content):
     """
     Extract word readings (假名) from vocabulary markdown file.
@@ -64,11 +80,12 @@ def extract_sentences(markdown_content):
     matches = re.findall(pattern, markdown_content, re.MULTILINE)
 
     for match in matches:
-        # Clean up — remove audio links and furigana markers for TTS
+        # Clean up — remove audio links and strip furigana annotations
         sentence = match.strip()
         # Remove markdown links
         sentence = re.sub(r'\[🔊\]\(.*?\)', '', sentence)
-        # Keep furigana as-is — edge-tts handles Japanese text well
+        # Remove （furigana） annotations to prevent double-reading
+        sentence = strip_furigana(sentence)
         sentence = sentence.strip()
         if sentence:
             sentences.append(sentence)
@@ -97,6 +114,8 @@ def extract_story(markdown_content):
     story_text = re.sub(r'\*\*', '', story_text)
     # Remove image links
     story_text = re.sub(r'!\[[^\]]*\]\([^)]*\)', '', story_text)
+    # Remove （furigana） annotations to prevent double-reading
+    story_text = strip_furigana(story_text)
     story_text = story_text.strip()
     return story_text
 

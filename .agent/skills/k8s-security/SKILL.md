@@ -1,15 +1,15 @@
 ---
 name: k8s-security
-description: Daily Kubernetes Security learning skill that generates a 30-day intensive curriculum. Starts from basic concepts and commands, scaling up to advanced cluster and container security patterns. Outputs content directly into the pages/cloud-security/k8s-security/ directory.
+description: Daily Kubernetes Security learning skill that generates a 57-day intensive curriculum. Starts from basic concepts and commands, scaling up to advanced cluster and container security patterns, and culminates with 27 hands-on vulnerability labs with runnable exploit scenarios. Outputs content directly into the pages/cloud-security/k8s-security/ directory.
 ---
 
 # Kubernetes Security Daily Learning Skill
 
-This skill helps you learn Kubernetes (k8s) and Kubernetes Security one topic per day over a 30-day intensive course. It begins with foundational concepts and command-line usage, progressing towards advanced workload, network, and cluster security implementations.
+This skill helps you learn Kubernetes (k8s) and Kubernetes Security one topic per day over a **57-day** intensive course. It begins with foundational concepts and command-line usage, progresses towards advanced workload, network, and cluster security implementations, and culminates with **27 vulnerability deep-dive labs** where you hand-craft insecure configurations and attack scenarios from scratch.
 
 ## When to Use This Skill
 
-- User says **"开始今日k8s任务"** (start today's k8s task)
+- User says **"start today's k8s task"**
 - User says **"start today's k8s security task"** or **"start daily k8s task"**
 - User says **"begin daily k8s practice"** or **"kubernetes today"**
 - User wants to continue their daily Kubernetes learning routine
@@ -88,6 +88,61 @@ Pick **one topic** from the curriculum below that:
 | `day28_cis_benchmarks` | 0x1C: CIS Benchmarks & Kube-bench | Assessing node and control plane compliance. |
 | `day29_image_scanning` | 0x1D: Container Image Security | Image vulnerability scanning (Trivy), distroless images, minimal base images. |
 | `day30_runtime_security` | 0x1E: Runtime Security Detection | Using tools like Falco or Tetragon to catch reverse shells and unauthorized access. |
+
+#### Phase 7: Vulnerability Lab — RBAC & Privilege Escalation (0x1F - 0x22)
+| topic_key | Title | Description |
+|-----------|-------|-------------|
+| `vuln_overpermissive_rbac_lab` | 0x1F: 🔬 Lab — Overly Permissive RBAC | Hand-craft ClusterRoleBindings with wildcard verbs/resources and demonstrate how a compromised pod escalates to cluster-admin. |
+| `vuln_rbac_escalation_lab` | 0x20: 🔬 Lab — RBAC Privilege Escalation Chains | Hand-craft a multi-step escalation: ServiceAccount → create pods → mount hostPath → read node secrets. Demonstrate `kubectl auth can-i` misses. |
+| `vuln_sa_token_abuse_lab` | 0x21: 🔬 Lab — ServiceAccount Token Abuse | Hand-craft pods with auto-mounted SA tokens, extract them, and use `curl` against the API server to list secrets across namespaces. |
+| `vuln_impersonation_lab` | 0x22: 🔬 Lab — API Server Impersonation | Hand-craft an RBAC policy allowing `impersonate` verb, then demonstrate how an attacker impersonates a cluster-admin user. |
+
+#### Phase 8: Vulnerability Lab — Container Escape & Host Access (0x23 - 0x26)
+| topic_key | Title | Description |
+|-----------|-------|-------------|
+| `vuln_privileged_container_lab` | 0x23: 🔬 Lab — Privileged Container Escape | Deploy a privileged pod, mount the host filesystem, and demonstrate full node compromise via `nsenter` or `chroot`. |
+| `vuln_hostpath_abuse_lab` | 0x24: 🔬 Lab — HostPath Volume Abuse | Hand-craft a pod mounting `/etc/shadow` or `/var/run/docker.sock` via hostPath and demonstrate credential theft or container spawning on the host. |
+| `vuln_cap_abuse_lab` | 0x25: 🔬 Lab — Dangerous Linux Capabilities | Hand-craft pods with `SYS_PTRACE`, `SYS_ADMIN`, or `NET_RAW` capabilities and demonstrate process injection, namespace escape, or ARP spoofing. |
+| `vuln_procfs_escape_lab` | 0x26: 🔬 Lab — /proc & /sys Filesystem Escape | Hand-craft a pod without `readOnlyRootFilesystem`, access `/proc/1/root` or cgroup release_agent to escape the container namespace. |
+
+#### Phase 9: Vulnerability Lab — Network & Lateral Movement (0x27 - 0x2A)
+| topic_key | Title | Description |
+|-----------|-------|-------------|
+| `vuln_no_netpol_lab` | 0x27: 🔬 Lab — Missing NetworkPolicy (Flat Network) | Deploy multiple services without any NetworkPolicy and demonstrate unrestricted pod-to-pod lateral movement using `nmap` and `curl`. |
+| `vuln_dns_exfil_lab` | 0x28: 🔬 Lab — DNS-Based Data Exfiltration | Hand-craft a pod that exfiltrates secrets via DNS queries to an external server, bypassing egress rules that only block TCP. |
+| `vuln_metadata_api_lab` | 0x29: 🔬 Lab — Cloud Metadata API SSRF | Deploy a pod that accesses the cloud provider's metadata endpoint (169.254.169.254) to steal IAM credentials and escalate to cloud resources. |
+| `vuln_service_mesh_bypass_lab` | 0x2A: 🔬 Lab — Service Mesh mTLS Bypass | Hand-craft a pod with `sidecar.istio.io/inject: false` annotation or direct IP access to bypass Istio/Linkerd mutual TLS enforcement. |
+
+#### Phase 10: Vulnerability Lab — Secrets & Data Exposure (0x2B - 0x2E)
+| topic_key | Title | Description |
+|-----------|-------|-------------|
+| `vuln_secrets_plaintext_lab` | 0x2B: 🔬 Lab — Secrets in Plain Sight | Hand-craft Secrets in environment variables and demonstrate extraction via `kubectl exec env`, `/proc/1/environ`, and etcd direct read. |
+| `vuln_etcd_unencrypted_lab` | 0x2C: 🔬 Lab — Unencrypted etcd Access | Demonstrate reading raw secret data from etcd when encryption-at-rest is not configured, and when the etcd endpoint is exposed. |
+| `vuln_configmap_secrets_lab` | 0x2D: 🔬 Lab — Sensitive Data in ConfigMaps | Hand-craft ConfigMaps containing database passwords and API keys, demonstrate exposure via `kubectl get configmap -o yaml`. |
+| `vuln_image_secrets_lab` | 0x2E: 🔬 Lab — Secrets Baked into Container Images | Build a container image with hardcoded credentials in ENV or filesystem, extract them via `docker history` and layer inspection. |
+
+#### Phase 11: Vulnerability Lab — Supply Chain & Image Security (0x2F - 0x32)
+| topic_key | Title | Description |
+|-----------|-------|-------------|
+| `vuln_unsigned_image_lab` | 0x2F: 🔬 Lab — Unsigned/Unverified Container Images | Deploy pods pulling from untrusted registries without signature verification, demonstrate image tampering and supply chain injection. |
+| `vuln_latest_tag_lab` | 0x30: 🔬 Lab — Mutable Image Tags (:latest) | Demonstrate how `:latest` tag allows silent image replacement, and how `imagePullPolicy: Always` still doesn't protect against tag mutation. |
+| `vuln_vuln_base_image_lab` | 0x31: 🔬 Lab — Vulnerable Base Images | Deploy a pod using an outdated base image with known CVEs, run Trivy/Grype scanning, and demonstrate exploitation of an unpatched vulnerability. |
+| `vuln_admission_bypass_lab` | 0x32: 🔬 Lab — Admission Controller Bypass | Hand-craft scenarios that bypass OPA/Kyverno policies: ephemeral containers, CronJobs, or label-matching exceptions. |
+
+#### Phase 12: Vulnerability Lab — Denial of Service & Resource Abuse (0x33 - 0x35)
+| topic_key | Title | Description |
+|-----------|-------|-------------|
+| `vuln_resource_exhaustion_lab` | 0x33: 🔬 Lab — Resource Exhaustion (No Limits) | Deploy pods without CPU/memory limits, run a fork bomb or memory leak, and demonstrate node-level OOM kills affecting neighboring workloads. |
+| `vuln_api_dos_lab` | 0x34: 🔬 Lab — API Server Denial of Service | Hand-craft a script that floods the API server with list/watch requests, demonstrate rate limiting gaps and EventRateLimit admission controller. |
+| `vuln_pod_disruption_lab` | 0x35: 🔬 Lab — Pod Disruption & Eviction Abuse | Demonstrate how missing PodDisruptionBudgets allow mass eviction, and how `kubectl drain` without safeguards causes service outages. |
+
+#### Phase 13: Vulnerability Lab — Cluster Infrastructure & Persistence (0x36 - 0x39)
+| topic_key | Title | Description |
+|-----------|-------|-------------|
+| `vuln_kubelet_unauth_lab` | 0x36: 🔬 Lab — Unauthenticated Kubelet API | Demonstrate accessing the Kubelet's read-only port (10255) or unauthenticated port (10250) to list pods, exec into containers, and read logs. |
+| `vuln_dashboard_exposed_lab` | 0x37: 🔬 Lab — Exposed Kubernetes Dashboard | Deploy the K8s Dashboard without authentication and demonstrate full cluster control via the web UI from an external network. |
+| `vuln_cronjob_persistence_lab` | 0x38: 🔬 Lab — CronJob/DaemonSet Persistence | After gaining initial access, create a CronJob or DaemonSet backdoor that maintains persistent access and survives pod restarts. |
+| `vuln_webhook_hijack_lab` | 0x39: 🔬 Lab — Mutating Webhook Hijack | Hand-craft a malicious MutatingAdmissionWebhook that injects sidecar containers or modifies pod specs to exfiltrate data on every deployment. |
 
 ### Step 3 — Generate the Daily Learning Session
 
@@ -292,6 +347,229 @@ Generate exactly 8 exercises, pacing from basic investigation to hard scenario e
 
 ---
 
+#### Vulnerability Lab Output Format (Phase 7–13 ONLY)
+
+For topics in **Phase 7 through Phase 13** (topic_keys starting with `vuln_`), use this **specialized template** instead of the standard template above. The emphasis is on **hand-crafting insecure configurations and attack scenarios from scratch**.
+
+```markdown
+---
+layout: default
+title: "{Title}"
+---
+
+# 🔬 Vulnerability Lab: {Vulnerability Name}
+
+**Date**: YYYY-MM-DD
+**Topic**: {Title}
+**Phase**: {Phase Name}
+**Lab Type**: Hand-crafted Vulnerability & Attack Scenario
+
+---
+
+## 📝 Vulnerability Overview
+
+**[CRITICAL: Do NOT output any "Welcome to" or AI intros. Immediately start the first sentence with a deep technical exploration of the vulnerability.]**
+
+[Exhaustive explanation of WHAT this vulnerability is, WHY it exists in Kubernetes architecture, HOW it is exploited in real clusters, and what real-world impact it has caused. Include API server internals, kubelet behavior, and Linux kernel details where relevant.]
+
+---
+
+## 🔑 Key Takeaways
+
+- [Key point 1: Root cause]
+- [Key point 2: Attack preconditions]
+- [Key point 3: Detection signals]
+- [Key point 4: Mitigation pattern]
+- [Key point 5: Related vulnerability classes]
+
+---
+
+## 🔴 Vulnerable Configuration Example 1: {Scenario Title}
+
+\`\`\`yaml
+# COMPLETE, DEPLOYABLE, RUNNABLE insecure Kubernetes manifest
+# Heavily commented — explain exactly where the flaw is
+# This must be a REAL manifest that can be applied via kubectl
+apiVersion: ...
+kind: ...
+metadata:
+  name: ...
+spec:
+  # ... insecure configuration ...
+\`\`\`
+
+\`\`\`bash
+# Command to deploy
+kubectl apply -f vulnerable-example-1.yaml
+\`\`\`
+
+**🔍 Vulnerability Analysis**:
+- [Where exactly is the flaw?]
+- [What preconditions enable exploitation?]
+- [What is the attacker's goal?]
+
+---
+
+## 🔴 Vulnerable Configuration Example 2: {Different Scenario Title}
+
+\`\`\`yaml
+# A DIFFERENT scenario demonstrating the SAME vulnerability class
+# Must be a distinct manifest with different attack surface
+apiVersion: ...
+kind: ...
+metadata:
+  name: ...
+spec:
+  # ... different insecure configuration ...
+\`\`\`
+
+**🔍 Vulnerability Analysis**:
+- [Where exactly is the flaw?]
+- [How does this differ from Example 1?]
+
+---
+
+## ⚔️ Attack Scenario 1: Exploiting Vulnerable Config 1
+
+\`\`\`bash
+# COMPLETE attack script / kubectl commands
+# Must be runnable against Vulnerable Configuration Example 1
+# Step-by-step exploitation from attacker's perspective
+\`\`\`
+
+\`\`\`yaml
+# If an attacker pod manifest is needed:
+apiVersion: v1
+kind: Pod
+metadata:
+  name: attacker-pod
+spec:
+  # ... attack payload ...
+\`\`\`
+
+**📋 Attack Walkthrough**:
+1. [Step-by-step description of the attack flow]
+2. [What happens at each stage]
+3. [Final state after exploitation — what did the attacker gain?]
+
+**Expected Output**:
+\`\`\`
+# What the attacker sees after successful exploitation
+\`\`\`
+
+---
+
+## ⚔️ Attack Scenario 2: Exploiting Vulnerable Config 2
+
+\`\`\`bash
+# COMPLETE attack script using a DIFFERENT approach or target
+\`\`\`
+
+**📋 Attack Walkthrough**:
+1. [Step-by-step]
+
+**Expected Output**:
+\`\`\`
+# What the attacker sees
+\`\`\`
+
+---
+
+## 🟢 Secure Implementation
+
+### Fix for Vulnerable Config 1
+
+\`\`\`yaml
+# Patched version of Vulnerable Configuration 1
+# Highlight the specific lines that changed with comments
+apiVersion: ...
+kind: ...
+metadata:
+  name: ...
+spec:
+  # ... secured configuration ...
+\`\`\`
+
+### Fix for Vulnerable Config 2
+
+\`\`\`yaml
+# Patched version of Vulnerable Configuration 2
+\`\`\`
+
+**✅ Why these fixes work**:
+- [Explain the mitigation mechanism for each fix]
+- [Reference industry best practices: CIS Benchmarks, NSA/CISA guidelines, etc.]
+
+---
+
+## ⚠️ Real-World Impact
+
+| Real-World Incident | Impact | Root Cause |
+|---------------------|--------|------------|
+| [Company/Project] | [Data breach / Cryptomining / etc.] | [Brief description] |
+| [Company/Project] | [Impact] | [Brief description] |
+
+---
+
+## 🏋️ Practice Exercise: {Challenge Title}
+
+**Scenario**: [Describe a new insecure cluster configuration the user must analyze and exploit]
+
+\`\`\`yaml
+# TARGET CONFIGURATION — Find and exploit the vulnerability!
+# The user should craft their own attack and remediation
+apiVersion: ...
+kind: ...
+metadata:
+  name: practice-target
+spec:
+  # ... vulnerable configuration ...
+\`\`\`
+
+**🎯 Goal**: [What the user needs to achieve — e.g., read secrets from another namespace, escape to host, etc.]
+
+**💡 Hint**: [A subtle hint without giving away the answer]
+
+<details>
+<summary>📖 Click to reveal solution</summary>
+
+\`\`\`bash
+# Solution: Attack commands
+\`\`\`
+
+\`\`\`yaml
+# Solution: Remediated manifest
+apiVersion: ...
+kind: ...
+spec:
+  # ... fixed configuration ...
+\`\`\`
+
+</details>
+
+---
+
+## 📖 Reference & Further Reading
+
+- [CIS Kubernetes Benchmark: {relevant section}]({url})
+- [NSA/CISA Kubernetes Hardening Guide]({url})
+- [Kubernetes Threat Matrix (Microsoft)]({url})
+
+---
+
+## 🗒️ Quick CLI Cheat Sheet
+
+\`\`\`bash
+# Essential kubectl / attack tool commands for this lab
+\`\`\`
+
+---
+
+[← back to k8s security](./) | [← back to cloud security](..) | [← back to home](/)
+```
+
+---
+
 ### Step 4 — Update history.yaml
 
 After generating the session file, **append** a new entry to `history.yaml`:
@@ -322,7 +600,7 @@ After generating the file and updating history, tell the user:
 
 1. **Today's topic**: The title and phase
 2. **File created**: The path to the session file
-3. **Progress**: How many topics have been covered so far (e.g., "1 / 30 topics completed - Phase 1")
+3. **Progress**: How many topics have been covered so far (e.g., "1 / 57 topics completed - Phase 1")
 4. **Streak reminder**: The date of their last session
 5. **Quick start**: Suggest they open the file and dive into the security mechanisms.
 
@@ -344,7 +622,8 @@ After generating the file and updating history, tell the user:
 - Include `kubectl apply -f` or similar context commands rather than just raw YAML.
 
 ### Exercises
-- **Volume**: You MUST generate exactly **8 practice exercises** per daily session, scaling from simple resource inspection to complex runtime attack scenarios.
+- **Volume (Phase 1–6)**: You MUST generate exactly **8 practice exercises** per daily session, scaling from simple resource inspection to complex runtime attack scenarios.
+- **Volume (Phase 7–13 Vulnerability Labs)**: Generate exactly **2 vulnerable configuration examples**, **2 attack scenario examples** (with full kubectl/bash commands), and **1 practice exercise** (with hidden solution). All manifests must be **complete, deployable, and runnable** — no pseudocode or stubs.
 
 ### File Organization
 
@@ -364,5 +643,5 @@ pages/cloud-security/k8s-security/
 ## Error Handling
 
 - If `history.yaml` is not parseable, warn the user and start with an empty history
-- If all 30 intensive topics are covered, congratulate the user!
+- If all 57 intensive topics are covered, congratulate the user!
 - If the user requests a specific topic (even if already covered), generate it but note it was covered before.

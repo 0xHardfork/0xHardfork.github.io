@@ -9,3 +9,9 @@
   title: "0x01 Lab: Foundry Hands-on — Install, Init, Test"
   category: "Phase 1: Web3 Fundamentals & Demos"
   file: "pages/web3/security/2026-04-23_web3sec01_lab.md"
+
+- date: "2026-04-27"
+  topic_key: "day02_ethereum_architecture"
+  title: "0x02: Ethereum Architecture & Accounts"
+  category: "Phase 1: Web3 Fundamentals & Demos"
+  file: "pages/web3/security/2026-04-27_web3sec01.md"

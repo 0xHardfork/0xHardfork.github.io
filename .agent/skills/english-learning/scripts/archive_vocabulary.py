@@ -50,9 +50,8 @@ class VocabularyArchiver:
         if language == 'english':
             # Find English vocabulary section
             vocab_section = re.search(
-                r'### Vocabulary\s*\n\n.*?\n\n\|(.*?)\n\|(.*?)\n((?:\|.*?\n)+)',
-                content,
-                re.DOTALL
+                r'### Vocabulary\s*\n+(?:(?!###?|##|---|\|)[^\n]*\n)*\|(.*?)\n\|(.*?)\n((?:\|.*?\n)+)',
+                content
             )
             if vocab_section:
                 header = vocab_section.group(1).strip()
@@ -62,7 +61,7 @@ class VocabularyArchiver:
                 for row in rows:
                     parts = [p.strip() for p in row.split('|')]
                     if len(parts) >= 5 and parts[1]:  # Has word content
-                        vocabulary.append({
+                         vocabulary.append({
                             'word': parts[1],
                             'definition': parts[2],
                             'cefr_level': parts[3],
@@ -72,9 +71,8 @@ class VocabularyArchiver:
         elif language == 'japanese':
             # Find Japanese vocabulary section
             vocab_section = re.search(
-                r'### 語彙 \(Vocabulary\)\s*\n\n.*?\n\n\|(.*?)\n\|(.*?)\n((?:\|.*?\n)+)',
-                content,
-                re.DOTALL
+                r'### 語彙 \(Vocabulary\)\s*\n+(?:(?!###?|##|---|\|)[^\n]*\n)*\|(.*?)\n\|(.*?)\n((?:\|.*?\n)+)',
+                content
             )
             if vocab_section:
                 header = vocab_section.group(1).strip()

@@ -33,3 +33,9 @@ history:
     title: "0x05: Sync & Context Packages"
     category: "Intensive Track"
     file: "pages/development/golang/2026-04-14_golang01.md"
+
+  - date: "2026-06-02"
+    topic_key: "day6_io_json_test"
+    title: "0x06: I/O, SerDe & Testing"
+    category: "Intensive Track"
+    file: "pages/development/golang/2026-06-02_golang01.md"

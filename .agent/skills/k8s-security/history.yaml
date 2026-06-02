@@ -33,3 +33,9 @@ history:
     title: "0x04: Services & Basic Networking"
     category: "Phase 1: Kubernetes Fundamentals"
     file: "pages/cloud-security/k8s-security/2026-04-14_k8s01.md"
+
+  - date: "2026-06-02"
+    topic_key: "day05_configmaps_secrets"
+    title: "0x05: ConfigMaps & Basic Secrets"
+    category: "Phase 1: Kubernetes Fundamentals"
+    file: "pages/cloud-security/k8s-security/2026-06-02_k8s01.md"

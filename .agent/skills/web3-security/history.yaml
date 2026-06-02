@@ -15,3 +15,9 @@
   title: "0x02: Ethereum Architecture & Accounts"
   category: "Phase 1: Web3 Fundamentals & Demos"
   file: "pages/web3/security/2026-04-27_web3sec01.md"
+
+- date: "2026-06-02"
+  topic_key: "day03_crypto_basics"
+  title: "0x03: Cryptography Basics — Keccak256, ECDSA & ECC"
+  category: "Phase 1: Web3 Fundamentals & Demos"
+  file: "pages/web3/security/2026-06-02_web3sec01.md"

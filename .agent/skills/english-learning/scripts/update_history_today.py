@@ -6,28 +6,28 @@ with open(history_path, 'r', encoding='utf-8') as f:
     history = json.load(f)
 
 new_session = {
-  "date": "2026-03-15",
+  "date": "2026-06-02",
   "difficulty": "intermediate",
   "scenarios": [
     {
-      "name": "API Integration Planning",
+      "name": "Zero Trust Architecture",
       "type": "meeting",
       "category": "it"
     },
     {
-      "name": "DevSecOps Pipeline",
+      "name": "Deployment Discussion",
       "type": "casual",
       "category": "it"
     },
     {
-      "name": "Travel Planning",
+      "name": "Restaurant Ordering",
       "type": "casual",
       "category": "daily"
     }
   ],
   "vocabulary_count": {
-    "english": 0,
-    "japanese": 0
+    "english": 18,
+    "japanese": 15
   }
 }
 
@@ -35,3 +35,5 @@ history["sessions"].append(new_session)
 
 with open(history_path, 'w', encoding='utf-8') as f:
     json.dump(history, f, indent=2, ensure_ascii=False)
+
+print("Successfully updated history.json!")

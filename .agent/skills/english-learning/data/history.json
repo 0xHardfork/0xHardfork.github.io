@@ -249,6 +249,31 @@
         "english": 18,
         "japanese": 18
       }
+    },
+    {
+      "date": "2026-06-02",
+      "difficulty": "intermediate",
+      "scenarios": [
+        {
+          "name": "Zero Trust Architecture",
+          "type": "meeting",
+          "category": "it"
+        },
+        {
+          "name": "Deployment Discussion",
+          "type": "casual",
+          "category": "it"
+        },
+        {
+          "name": "Restaurant Ordering",
+          "type": "casual",
+          "category": "daily"
+        }
+      ],
+      "vocabulary_count": {
+        "english": 18,
+        "japanese": 15
+      }
     }
   ]
 }

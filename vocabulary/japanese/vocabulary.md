@@ -1,7 +1,7 @@
 # Japanese Vocabulary Archive
 
-**Last Updated:** 2026-03-22
-*Total words: 65*
+**Last Updated:** 2026-06-02
+*Total words: 79*
 
 | Word | Kana (or Definition) | CEFR Level | Example | Date Added | Source Scenario |
 |---|---|---|---|---|---|
@@ -70,4 +70,18 @@
 | 連れ | つれ (同伴/另一半) | B1 | 連れが枕大好きなんで | 2026-03-22 | Hotel Check-in |
 | かしこまりました | かしこまりました (明白了(敬语)) | B1 | かしこまりました | 2026-03-22 | Hotel Check-in |
 | 屋上 | おくじょう (天台/屋顶) | B1 | 屋上にプールもあります | 2026-03-22 | Hotel Check-in |
+| 立ち上げる | たちあげる (启动，启用) | B2 | ワークロードID用にSPIFFE/SPIREを立ち上げる計画だよ。 | 2026-06-02 | Multiple scenarios |
+| 寿命 | じゅみょう (寿命，生命周期) | B2 | 短寿命のアクセストークンに切り替えるべきだね。 | 2026-06-02 | Multiple scenarios |
+| 必須にする | ひっすにする (设为必填，强制要求) | B2 | IdPレベルでMFAを必須にしよう。 | 2026-06-02 | Multiple scenarios |
+| 備える | そなえる (防备，准备) | B2 | 万が一の場合に備えて... | 2026-06-02 | Multiple scenarios |
+| 反映される | はんえいされる (得到体现，生效) | B2 | 本番に反映された？ | 2026-06-02 | Multiple scenarios |
+| 準備完了 | じゅんびかんりょう (准备完毕) | B1 | これで準備完了。 | 2026-06-02 | Multiple scenarios |
+| 悲惨 | ひさん (悲惨的，糟糕的) | B2 | ああ、あれは悲惨だったね。 | 2026-06-02 | Multiple scenarios |
+| 見守る | みまもる (守望，注视) | B1 | エラーログを見守るようにしよう。 | 2026-06-02 | Multiple scenarios |
+| どういたしまして | どういたしまして (不客气) | B1 | どういたしまして！ | 2026-06-02 | Multiple scenarios |
+| 絶品 | ぜっぴん (绝品，美味佳肴) | B2 | ここのトリュフポテトは本当に絶品なんだ。 | 2026-06-02 | Multiple scenarios |
+| 口コミ | くちこみ (口碑，评论) | B1 | ベジバーガーは口コミの評価がすごく高くて。 | 2026-06-02 | Multiple scenarios |
+| 別添え | べつぞえ (单独盛放，附带在旁) | B2 | ソースは別添えにできますか？ | 2026-06-02 | Multiple scenarios |
+| 付け合わせ | つけあわせ (配菜，副菜) | B2 | 付け合わせにサラダは付きますか？ | 2026-06-02 | Multiple scenarios |
+| 水道水 | すいどうすい (自来水) | B1 | 飲み物は、水道水で大丈夫です。 | 2026-06-02 | Multiple scenarios |
 ---

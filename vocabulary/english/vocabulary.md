@@ -1,7 +1,7 @@
 # English Vocabulary Archive
 
-**Last Updated:** 2026-03-22
-*Total words: 77*
+**Last Updated:** 2026-06-02
+*Total words: 92*
 
 | Word | Definition | CEFR Level | Example | Date Added | Source Scenario |
 |---|---|---|---|---|---|
@@ -81,4 +81,20 @@
 | packed | 挤满的 | B1 | gets pretty packed on weekends | 2026-03-22 | Hotel Check-in |
 | pencil in | 临时预定 | B2 | pencil you in now | 2026-03-22 | Hotel Check-in |
 | say no more | 不用多说了 | B2 | say no more | 2026-03-22 | Hotel Check-in |
+| out of the box | 开箱即用，默认支持 | C1 | It doesn't support token-based auth out of the box. | 2026-06-02 | Multiple scenarios |
+| doable | 可行的，可以做的 | B2 | Yeah, that's doable. | 2026-06-02 | Multiple scenarios |
+| flag | 指出，标记为需要注意 | C1 | The security review flagged our long-lived session tokens. | 2026-06-02 | Multiple scenarios |
+| sketch out | 草拟，画出简图 | B2 | I'll sketch out the architecture diagram... | 2026-06-02 | Multiple scenarios |
+| prep | 准备（prepare的缩写） | B2 | I'll start prepping the terraform scripts... | 2026-06-02 | Multiple scenarios |
+| hotfix | 热修复，紧急补丁 | B2 | ...did the hotfix for the payment gateway make it to prod? | 2026-06-02 | Multiple scenarios |
+| dry run | 演练，模拟测试 | B2 | ...we did a dry run on staging first... | 2026-06-02 | Multiple scenarios |
+| sanity check | 健全性检查，初步测试 | C1 | She's running some sanity checks now. | 2026-06-02 | Multiple scenarios |
+| keep an eye on | 密切注意，盯着 | B1 | Let's keep an eye on the error logs... | 2026-06-02 | Multiple scenarios |
+| just to be safe | 为保险起见，以防万一 | B1 | ...just to be safe. | 2026-06-02 | Multiple scenarios |
+| vibe | 氛围，格调 | B1 | This place has a great vibe. | 2026-06-02 | Multiple scenarios |
+| out of this world | 棒极了，极出色的 | C1 | Their truffle fries are out of this world. | 2026-06-02 | Multiple scenarios |
+| starving | 饿扁了，饥饿的 | B1 | Oh, absolutely. I'm starving. | 2026-06-02 | Multiple scenarios |
+| swap A for B | 用A换B，替换 | B2 | ...swap the cheddar for Swiss... | 2026-06-02 | Multiple scenarios |
+| be set | 准备就绪，可以了 | B1 | I think we're set. | 2026-06-02 | Multiple scenarios |
+| tap water | 自来水 | B1 | ...we'll just have tap water for drinks. | 2026-06-02 | Multiple scenarios |
 ---

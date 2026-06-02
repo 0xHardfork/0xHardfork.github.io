@@ -6,7 +6,27 @@
 <!-- Setup Google Analytics -->
 {% include head-custom-google-analytics.html %}
 
-<!-- You can set your favicon here -->
-<!-- link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}" -->
+<link id="favicon" rel="icon" type="image/png" href="{{ '/favicon.png' | relative_url }}">
+<script>
+  (function() {
+    const favs = [
+      "{{ '/favicon.png' | relative_url }}",
+      "{{ '/favicon-alt.png' | relative_url }}",
+      "{{ '/favicon-alt2.png' | relative_url }}"
+    ];
+    let index = 0;
+    setInterval(function() {
+      index = (index + 1) % favs.length;
+      const link = document.getElementById('favicon');
+      if (link) {
+        // Clone and replace to force browser refresh
+        const newLink = link.cloneNode(true);
+        newLink.href = favs[index];
+        link.parentNode.replaceChild(newLink, link);
+      }
+    }, 1000);
+  })();
+</script>
+
 
 <!-- end custom head snippets -->

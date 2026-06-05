@@ -39,3 +39,15 @@ history:
     title: "0x06: I/O, SerDe & Testing"
     category: "Intensive Track"
     file: "pages/development/golang/2026-06-02_golang01.md"
+
+  - date: "2026-06-05"
+    topic_key: "day7_adv_internals"
+    title: "0x07: Advanced Internals & Reflection"
+    category: "Intensive Track"
+    file: "pages/development/golang/2026-06-05_golang01.md"
+
+  - date: "2026-06-05"
+    topic_key: "supplement_generics_http_modules"
+    title: "0x08: Supplement — Generics, HTTP, Modules & More"
+    category: "Supplement"
+    file: "pages/development/golang/2026-06-05_golang02.md"

@@ -1,0 +1,59 @@
+<!-- Mermaid.js Support for GitHub Pages -->
+<style>
+  .mermaid {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;
+    padding: 16px;
+    background: rgba(20, 20, 20, 0.7);
+    border: 1px solid #333333;
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+  .mermaid svg {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+<script src="{{ '/assets/js/mermaid.min.js' | relative_url }}"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select all code blocks produced by Kramdown / Rouge
+    const codeBlocks = document.querySelectorAll(
+      "pre code.language-mermaid, div.language-mermaid pre code, code.language-mermaid, pre.language-mermaid"
+    );
+
+    if (codeBlocks.length > 0 && window.mermaid) {
+      codeBlocks.forEach(function (codeEl) {
+        const rawCode = codeEl.textContent.trim();
+        const container = codeEl.closest("div.language-mermaid, div.highlighter-rouge") || codeEl.closest("pre") || codeEl;
+        
+        const mermaidDiv = document.createElement("div");
+        mermaidDiv.className = "mermaid";
+        mermaidDiv.textContent = rawCode;
+        
+        container.parentNode.replaceChild(mermaidDiv, container);
+      });
+
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: 'dark',
+        securityLevel: 'loose',
+        themeVariables: {
+          darkMode: true,
+          background: '#151515',
+          primaryColor: '#1f2421',
+          primaryTextColor: '#b5e853',
+          primaryBorderColor: '#90a959',
+          lineColor: '#b5e853',
+          secondaryColor: '#181a1b',
+          tertiaryColor: '#222527'
+        }
+      });
+
+      mermaid.run({
+        querySelector: '.mermaid'
+      });
+    }
+  });
+</script>
